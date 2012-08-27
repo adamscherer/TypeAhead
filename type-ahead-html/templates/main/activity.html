@@ -1,0 +1,25 @@
+<section class="utopia-widget">
+    <div class="utopia-widget-title">
+        <img src="/img/icons/pyramid.png" class="utopia-widget-icon">
+        <span>Bucket Activity</span>
+    </div>
+
+    <div class="utopia-widget-content">
+
+        <div class="utopia-activity-feeds">
+            <ul>
+                <% _.each(data.activities, function(activity, i) { %>
+                <li>
+                    <div class="text">
+                        <p><span class="label label-success"><%= activity.interviewerUsername %></span> <%= activity.description %> - <a href="#/recruit/<%= activity.recruitId%>"><%= activity.recruitFirstName %> <%= activity.recruitLastName %></a></p>
+                    </div>
+
+                    <div class="info">
+                        <span class="date"><%= activity.creationTime %></span>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</section>

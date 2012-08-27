@@ -1,0 +1,63 @@
+<div class="span3">
+    <div class="utopia-chart-legend" data-type="IDENTIFICATION">
+        <div rel="tooltip" data-original-title="Currently, there are <%= data['IDENTIFICATION'] || 0 %> active people in the Identification stage who will have their resumes reviewed to determine if they can progress to the Evaluation stage.">
+            <div class="utopia-chart-icon">
+                <img src="/img/icons2/eye.png">
+            </div>
+            <div class="utopia-chart-heading" >
+                <%= data['IDENTIFICATION'] || 0 %>
+            </div>
+            <div class="utopia-chart-desc">
+                IDENTIFICATION
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="span3">
+    <div class="utopia-chart-legend" data-type="EVALUATION">
+        <div rel="tooltip" data-original-title="Currently, there are <%= data['EVALUATION'] || 0 %> active people in the Evaluation stage who will participate in further face to face screenings.">
+            <div class="utopia-chart-icon">
+                <img src="/img/icons2/clipboard.png">
+            </div>
+            <div class="utopia-chart-heading" >
+                <%= data['EVALUATION'] || 0 %>
+            </div>
+            <div class="utopia-chart-desc">
+                EVALUATION
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="span3">
+    <div class="utopia-chart-legend" data-type="AQUISITION">
+        <div rel="tooltip" data-original-title="There are <%= data['AQUISITION'] || 0 %> active people have passed our Evaluation stage and have received or will receive an offer.">
+            <div class="utopia-chart-icon">
+                <img src="/img/icons2/download2.png">
+            </div>
+            <div class="utopia-chart-heading">
+                <%= data['AQUISITION'] || 0 %>
+            </div>
+            <div class="utopia-chart-desc">
+                AQUISITION
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="span3">
+    <div class="utopia-chart-legend" data-type="ONBOARDING">
+        <div rel="tooltip" data-original-title="There are <%= data['ONBOARDING'] || 0 %> people who have accepted our offer for this school year and will start at the end of next summer.">
+            <div class="utopia-chart-icon">
+                <img src="/img/icons2/checkmark.png">
+            </div>
+            <div class="utopia-chart-heading">
+                <%= data['ONBOARDING'] || 0 %>
+            </div>
+            <div class="utopia-chart-desc">
+                ON-BOARDING
+            </div>
+        </div>
+    </div>
+</div>

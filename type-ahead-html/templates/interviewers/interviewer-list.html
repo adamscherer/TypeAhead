@@ -1,0 +1,40 @@
+<section class="utopia-widget">
+    <div class="utopia-widget-title">
+        <img src="/img/icons/paragraph_justify.png" class="utopia-widget-icon">
+        <span>All Interviewers</span>
+    </div>
+
+    <div class="utopia-widget-content">
+
+        <table class="table table-bordered">
+
+            <colgroup>
+                <col class="utopia-col-0">
+                <col class="utopia-col-1">
+                <col class="utopia-col-0">
+            </colgroup>
+
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th style="width: 100px">Actions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                <% _.each(data.interviewers, function(interviewer, i) { %>
+                    <tr>
+                        <td><%= interviewer.firstName%> <%= interviewer.lastName%></td>
+                        <td><%= interviewer.username%></td>
+                        <td>
+                            <a href="javascript:void(0)" class="edit"><img src="/img/icons/pencil.png" alt="Edit"></a>
+                            <a href="javascript:void(0)" class="delete"><img src="/img/icons/trash_can.png" alt="Delete"></a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+    </div>
+</section>

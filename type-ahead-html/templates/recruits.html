@@ -1,0 +1,109 @@
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <div class="row-fluid">
+            <section class="utopia-widget">
+                <div class="utopia-widget-title">
+                    <a class="btn btn-primary btn-small x-add-recruit" href="#"><i class="icon-user icon-white"></i> Add Recruit</a>
+                    <img src="/img/icons/user.png" class="utopia-widget-icon">
+                    <span>All Recruits</span>
+                </div>
+            
+                <div class="utopia-widget-content">
+                    
+                    <div class="">
+                        <div class="btn-group">
+                            <a href="#" class="btn"><i class="icon-cog"></i> Actions</a>
+                            <a href="#" data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered datatable ">
+            
+                        <colgroup>
+                            <col class="utopia-col-1">
+                            <col class="utopia-col-0">
+                            <col class="utopia-col-1">
+                            <col class="utopia-col-0">
+                            <col class="utopia-col-1">
+                            <col class="utopia-col-0">
+                            <col class="utopia-col-1">
+                            <col class="utopia-col-0">
+                        </colgroup>
+            
+                        <thead>
+                        <tr>
+                            <th><input class="utopia-check-all" type="checkbox"></th>
+                            <th class="header <% if (data.sort.property == 'firstName') { %>headerSortDown<% } %>" data-sort="firstName">Name</th>
+                            <th class="header <% if (data.sort.property == 'education') { %>headerSortDown<% } %>" data-sort="education">School Info</th>
+                            <th class="header <% if (data.sort.property == 'stage') { %>headerSortDown<% } %>" data-sort="stage">Phase</th>
+                            <th class="header <% if (data.sort.property == 'updateTime') { %>headerSortDown<% } %>" data-sort="updateTime">Last Updated</th>
+                            <th class="header <% if (data.sort.property == 'creationTime') { %>headerSortDown<% } %>" data-sort="creationTime">Date Added</th>
+                            <th class="header <% if (data.sort.property == 'bucketScore') { %>headerSortDown<% } %>" data-sort="bucketScore" style="width: 100px; text-align:center">Bucket Score</th>
+                            <th style="width: 100px; text-align:center">Actions</th>
+                        </tr>
+                        </thead>
+            
+                        <tbody>
+                            <% _.each(data.models, function(recruit, i) { %>
+                                
+                                <tr>
+                                    <td><input class="chkbox" type="checkbox" name="checkbox[]"></td>
+                                    <td><a href="#/recruit/<%= recruit.id%>"><%= recruit.firstName%> <%= recruit.lastName%></a></a></td>
+                                    <td>
+                                        <% _.each(recruit.education, function(school, i) {%>
+                                            <% if (i != 0) { %> <br/> <% } %>
+                                            <%= school.name || '' %>
+                                        <% }); %>
+                                    </td>
+                                    <td><%= recruit.stage %></td>
+                                    <td><%= recruit.updateTime %></td>
+                                    <td><%= recruit.creationTime %></td>
+                                    <td style="text-align:center"><span class="badge badge-warning"><%= recruit.bucketScore.toFixed(2)%></span></td>
+                                    <td style="text-align:center" data-id="<%= recruit.id%>">
+                                        <a href="#/recruit/<%= recruit.id%>" class="edit"><img src="/img/icons/pencil.png" alt="Edit"></a>
+                                        <a href="javascript:void(0)" class="delete"><img src="/img/icons/trash_can.png" alt="Delete"></a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="dataTables_length">
+                                <label>
+                                    <select id="totalRows">
+                                        <option value="5" <% if (data.pagination.size == 5) { %>selected="selected"<% } %>>5</option>
+                                        <option value="10" <% if (data.pagination.size == 10) { %>selected="selected"<% } %>>10</option>
+                                        <option value="25" <% if (data.pagination.size == 25) { %>selected="selected"<% } %>>25</option>
+                                        <option value="50" <% if (data.pagination.size == 50) { %>selected="selected"<% } %>>50</option>
+                                        <option value="100" <% if (data.pagination.size == 100) { %>selected="selected"<% } %>>100</option>
+                                    </select>
+                                    rows per page
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="span6">
+                            <div class="pagination pagination-right" data-page="<%= data.pagination.number + 1 %>">
+                              <ul>
+                                <li <% if (data.pagination.firstPage) { %>class="disabled"<% } %>><a href="#" class="prev">&laquo;</a></li>
+                                <li class="active"><a href="#"><%= (data.pagination.number * data.pagination.size) + 1 %> - <%= ((data.pagination.number * data.pagination.size)) + data.pagination.numberOfElements %> of <%= data.pagination.totalElements %></a></li>
+                                <li <% if (data.pagination.lastPage) { %>class="disabled"<% } %>><a href="#" class="next">&raquo;</a></li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+</div>

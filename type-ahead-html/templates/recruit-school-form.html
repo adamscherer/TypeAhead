@@ -1,0 +1,64 @@
+<fieldset>
+    <div class="control-group">
+        <label class="control-label">School</label>
+        <div class="controls">
+            <input class="input-fluid" type="text" name="name" value="<%= data.name || ''%>" data-provide="typeahead-school" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">GPA</label>
+        <div class="controls">
+            <input class="input-fluid" type="text" name="gpa" value="<%= data.gpa || ''%>">
+            <br>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Concentration 1</label>
+        <div class="controls">
+            <input class="input-fluid" type="text" name="concentration1" value="<%= data.concentration1 || ''%>">
+            <br>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Concentration 2</label>
+        <div class="controls">
+            <input class="input-fluid" type="text" name="concentration2" value="<%= data.concentration2 || ''%>">
+            <br>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="category">Graduated</label>
+        <div class="controls">
+            <div class="btn-group x-small" data-toggle="buttons-radio">
+                <button class="btn <% if (data.graduated) { %>active <% } %>" data-toggle="button" data-value="true">
+                    Yes
+                </button>
+                <button class="btn <% if (!data.graduated) { %>active <% } %>" data-toggle="button" data-value="false">
+                    No
+                </button>
+                <input type="hidden" name="graduated" value="<%= data.graduated || 'false'%>"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">School Type</label>
+        <div class="controls">
+            <div class="btn-group x-small" data-toggle="buttons-radio">
+                <button class="btn <% if (data.type == 'COLLEGE') { %>active <% } %>" data-toggle="button" data-value="COLLEGE">
+                    College
+                </button>
+                <button class="btn <% if (data.type == 'GRADUATE_SCHOOL') { %>active <% } %>" data-toggle="button" data-value="GRADUATE_SCHOOL">
+                    Graduate
+                </button>
+                <input type="hidden" name="type" value="<%= data.type || 'COLLEGE'%>"/>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+</fieldset>

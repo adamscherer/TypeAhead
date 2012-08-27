@@ -1,0 +1,39 @@
+<div class="modal hide fade">
+    <form id="validation" method="post" class="form-horizontal" >
+    <div class="modal-body">
+        <div class="alert alert-error hide">
+            <strong>Hmmm...</strong> Double check your username and password and try submitting again.
+        </div>
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="question">Question:</label>
+
+                <div class="controls">
+                    <textarea class="input-xlarge" id="question" name="question" rows="6"><%= data.question || ''%></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="category">Category:</label>
+                <div class="controls">
+                    <div class="btn-group small" data-toggle="buttons-radio">
+                        <button class="btn <% if (data.category == 'SMART') { %>active <% } %>" data-toggle="button" data-value="SMART">
+                            Smart
+                        </button>
+                        <button class="btn <% if (data.category == 'MOTIVATED') { %>active <% } %>" data-toggle="button" data-value="MOTIVATED">
+                            Motivated
+                        </button>
+                        <button class="btn <% if (data.category == 'GETS_ALONG') { %>active <% } %>" data-toggle="button" data-value="GETS_ALONG">
+                            Gets Along
+                        </button>
+                        <input type="hidden" name="category" value="<%= data.category || ''%>"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+    </form>
+</div>

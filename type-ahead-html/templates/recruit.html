@@ -1,0 +1,424 @@
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="#/recruits">Recuits</a><span class="divider">/</span>
+            </li>
+            <li class="active">
+                <%= data.firstName %> <%= data.lastName %>
+            </li>
+        </ul>
+        <div class="row-fluid">
+            <div class="span12">
+                <h1 class="recruit-name"> <%= data.firstName %> <%= data.lastName %> <span class="badge badge-warning">BucketScore&trade; <%= data.bucketScore.toFixed(2) %></span></h1>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span4">
+                <section class="utopia-widget recruit-info">
+                    <div class="utopia-widget-title">
+                        <a class="btn btn-mini x-edit" href="#"><img src="/img/icons/pencil.png" title="pencil"> Edit</a>
+                        <span>Basic Info</span>
+
+                    </div>
+                    <div class="utopia-widget-content clearfix read">
+                        <h5><label>Hometown:</label><span><%= data.hometown || '<i>Not specified</i>' %></span></h5>
+                        <h5><label>Stage:</label><span><%= data.stage %></span></h5>
+                        <h5><label>Active:</label><span><%= data.active || 'Yes' %></span></h5>
+                    </div>
+                    <div class="utopia-widget-content edit">
+                        <form class="">
+                            <div class="control-group">
+                                <label class="control-label" for="firstName">First Name</label>
+                                <div class="controls">
+                                    <input id="firstName" class="input-fluid" type="text" name="firstName" value="<%= data.firstName || ''%>">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="lastName">Last Name</label>
+                                <div class="controls">
+                                    <input id="lastName" class="input-fluid" type="text" name="lastName" value="<%= data.lastName || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="hometown">Hometown</label>
+                                <div class="controls">
+                                    <input id="hometown" class="input-fluid" type="text" name="hometown" value="<%= data.homeTown || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="selectStage">Stage:</label>
+                                <div class="controls sample-form-chosen">
+                                    <select id="selectStage" name="stage">
+                                        <option value="IDENTIFICATION" <% if (data.stage == 'IDENTIFICATION') { %>selected="selected" <% } %>>Indentification</option>
+                                        <option value="EVALUATION" <% if (data.stage == 'EVALUATION') { %>selected="selected" <% } %>>Evaluation</option>
+                                        <option value="AQUISITION" <% if (data.stage == 'AQUISITION') { %>selected="selected" <% } %>>Aquisition</option>
+                                        <option value="ONBOARDING" <% if (data.stage == 'ONBOARDING') { %>selected="selected" <% } %>>On-Boarding</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a class="btn x-cancel" href="#"> Cancel </a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="utopia-widget recruit-info">
+                    <div class="utopia-widget-title">
+                        <a class="btn btn-mini x-edit" href="#"><img src="/img/icons/pencil.png" title="pencil"> Edit</a>
+                        <span>Contact Info</span>
+                    </div>
+                    <div class="utopia-widget-content clearfix read">
+                        <h5><label>Email:</label><span><%= data.email || ''%></span></h5>
+                        <h5><label>Mobile Number:</label><span><%= data.mobileNumber || ''%></span></h5>
+                        <h5><label>Home Number:</label><span><%= data.homeNumber || ''%></span></h5>
+                        <h5><label>Address:</label><span>
+                            <%= data.currentAddress.address || ''%>
+                            <%= data.currentAddress.city || ''%> <%= data.currentAddress.state || ''%> <%= data.currentAddress.zipCode || ''%> </span></h5>
+                    </div>
+                    <div class="utopia-widget-content edit">
+                        <form class="">
+                            <div class="control-group">
+                                <label class="control-label" for="email">Email</label>
+                                <div class="controls">
+                                    <input id="email" class="input-fluid" type="text" name="email" value="<%= data.email || ''%>">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="mobileNumber">Mobile Number</label>
+                                <div class="controls">
+                                    <input id="mobileNumber" class="input-fluid" type="text" name="mobileNumber" value="<%= data.mobileNumber || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="phoneNumber">Home Number</label>
+                                <div class="controls">
+                                    <input id="homeNumber" class="input-fluid" type="text" name="homeNumber" value="<%= data.homeNumber || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="address">Address</label>
+                                <div class="controls">
+                                    <input id="address" class="input-fluid" type="text" name="currentAddress[address]" value="<%= data.currentAddress.address || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="city">City</label>
+                                <div class="controls">
+                                    <input id="city" class="input-fluid" type="text" name="currentAddress[city]" value="<%= data.currentAddress.city || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="zipCode">Zip</label>
+                                <div class="controls">
+                                    <input id="zipCode" class="input-fluid" type="text" name="currentAddress[zipCode]" value="<%= data.currentAddress.zipCode || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a class="btn x-cancel" href="#"> Cancel </a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="utopia-widget recruit-info">
+                    <div class="utopia-widget-title">
+                        <a class="btn btn-mini x-edit" href="#"><img src="/img/icons/pencil.png" title="pencil"> Edit</a>
+                        <span>Favorites</span>
+                    </div>
+                    <div class="utopia-widget-content clearfix read">
+                        <h5><label>Book:</label><span><%= data.favoriteBook || ''%></span></h5>
+                        <h5><label>Movie:</label><span><%= data.favoriteMovie || ''%></span></h5>
+                        <h5><label>Blog:</label><span><%= data.favoriteBlog || ''%></span></h5>
+                        <h5><label>Website:</label><span><%= data.favoriteWebsite || ''%></span></h5>
+                        <h5><label>Magazine/Newspaper:</label><span><%= data.favoritePublication || ''%></span></h5>
+                        <h5><label>Travel Destination:</label><span><%= data.favoriteTravelDestination || ''%></span></h5>
+                    </div>
+                    <div class="utopia-widget-content edit">
+                        <form class="">
+                            <div class="control-group">
+                                <label class="control-label" for="favoriteBook">Book</label>
+                                <div class="controls">
+                                    <input id="favoriteBook" class="input-fluid" type="text" name="favoriteBook" value="<%= data.favoriteBook || ''%>">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="favoriteMovie">Movie</label>
+                                <div class="controls">
+                                    <input id="favoriteMovie" class="input-fluid" type="text" name="favoriteMovie" value="<%= data.favoriteMovie || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="favoriteBlog">Blog</label>
+                                <div class="controls">
+                                    <input id="favoriteBlog" class="input-fluid" type="text" name="favoriteBlog" value="<%= data.favoriteBlog || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="favoriteWebsite">Website</label>
+                                <div class="controls">
+                                    <input id="favoriteWebsite" class="input-fluid" type="text" name="favoriteWebsite" value="<%= data.favoriteWebsite || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="favoritePublication">Magazine/Newspaper</label>
+                                <div class="controls">
+                                    <input id="favoritePublication" class="input-fluid" type="text" name="favoritePublication" value="<%= data.favoritePublication || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="favoriteWebsite">Travel Destination</label>
+                                <div class="controls">
+                                    <input id="favoriteTravelDestination" class="input-fluid" type="text" name="favoriteTravelDestination" value="<%= data.favoriteTravelDestination || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a class="btn x-cancel" href="#"> Cancel </a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="span4">
+                <section class="utopia-widget recruit-info">
+                    <div class="utopia-widget-title">
+                        <a class="btn btn-mini x-edit" href="#"><img src="/img/icons/pencil.png" title="pencil"> Edit</a>
+                        <span>Education</span>
+                    </div>
+                    <div class="utopia-widget-content clearfix read">
+                        <% if (data.education.length == 0) { %>
+                            <div class="alert alert-info">No schools have been added.</div>
+                        <% } %>
+                        <% _.each(data.education, function(education, i) { %>
+                            <% if (i != 0) { %> <hr/> <% } %>
+                            <p>
+                                <h5><label>School:</label><span><%= education.name || '' %></span></h5>
+                                <h5><label>GPA:</label><span><%= (_.isNumber(education.gpa)) ? education.gpa.toFixed(2) : '' %></span></h5>
+                                <h5><label>Concentration 1:</label><span><%= education.concentration1 || '' %></span></h5>
+                                <h5><label>Concentration 2:</label><span><%= education.concentration2 || '' %></span></h5>
+                                <h5><label>Type:</label><span><%= education.type || '' %></span></h5>
+                                <h5><label>Graduated:</label><span><%= education.graduated || 'No' %></span></h5>
+                            </p>
+                        <% }); %>
+                    </div>
+                    <div class="utopia-widget-content edit">
+                        <form class="form-horizontal small" data-collection="education">
+                            <div class="data">
+                                <%if (data.education.length == 0) {%>
+                                    <%= schoolForm({data : {}}) %>
+                                <%}%>
+                                <% _.each(data.education, function(education, i) { %>
+                                    <%= schoolForm({data : education}) %>
+                                <% }); %>
+                            </div>
+                            <div>
+                                <div class="controls">
+                                    <a class="btn btn-mini x-add-school" href="#"><img src="/img/icons/pencil.png" title="pencil"> Add School</a>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a class="btn x-cancel" href="#"> Cancel </a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="utopia-widget recruit-info">
+                    <div class="utopia-widget-title">
+                        <a class="btn btn-mini x-edit" href="#"><img src="/img/icons/pencil.png" title="pencil"> Edit</a>
+                        <span>Work Experience</span>
+                    </div>
+                    <div class="utopia-widget-content clearfix read">
+                        <% if (data.work.length == 0) { %>
+                            <div class="alert alert-info">No work experience has been added.</div>
+                        <% } %>
+                        <% _.each(data.work, function(work, i) { %>
+                            <% if (i != 0) { %> <hr/> <% } %>
+                            <p>
+                                <h5><label>Company Name:</label><span><%= work.name || '' %></span></h5>
+                                <h5><label>Position:</label><span><%= work.position || '' %></span></h5>
+                                <h5><label>Time Frame:</label><span><%= work.gpa || '' %></span></h5>
+                                <h5><label>Description:</label><span><%= work.description || '' %></span></h5>
+                            </p>
+                        <% }); %>
+                    </div>
+                    <div class="utopia-widget-content edit">
+                        <form class="form-horizontal small" data-collection="work">
+                            <div class="data">
+                                <%if (data.work.length == 0) {%>
+                                    <%= workForm({data : {}}) %>
+                                <%}%>
+                                <% _.each(data.work, function(work, i) { %>
+                                    <%= workForm({data : work}) %>
+                                <% }); %>
+                            </div>
+
+                            <div>
+                                <div class="controls">
+                                    <a class="btn btn-mini x-add-work" href="#"><img src="/img/icons/pencil.png" title="pencil"> Add Work Experience</a>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a class="btn x-cancel" href="#"> Cancel </a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="utopia-widget recruit-info">
+                    <div class="utopia-widget-title">
+                        <a class="btn btn-mini x-edit" href="#"><img src="/img/icons/pencil.png" title="pencil"> Edit</a>
+                        <span>Interests and Activities</span>
+                    </div>
+                    <div class="utopia-widget-content clearfix read">
+                        <h5><label>Social Organization:</label><span><%= data.socialOrganization || '' %></span></h5>
+                        <h5><label>Foreign Languages:</label><span><%= data.foreignLanguage || '' %></span></h5>
+                        <h5><label>Musical Instruments:</label><span><%= data.musicalInstrument || '' %></span></h5>
+                    </div>
+                    <div class="utopia-widget-content edit">
+                        <form class="">
+                            <div class="control-group">
+                                <label class="control-label" for="socialOrganization">Social Organization</label>
+                                <div class="controls">
+                                    <input id="socialOrganization" class="input-fluid" type="text" name="socialOrganization" value="<%= data.socialOrganization || ''%>">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="foreignLanguage">Foreign Languages</label>
+                                <div class="controls">
+                                    <input id="foreignLanguage" class="input-fluid" type="text" name="foreignLanguage" value="<%= data.foreignLanguage || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label" for="musicalInstrument">Musical Instruments</label>
+                                <div class="controls">
+                                    <input id="musicalInstrument" class="input-fluid" type="text" name="musicalInstrument" value="<%= data.musicalInstrument || ''%>">
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Save
+                                </button>
+                                <a class="btn x-cancel" href="#"> Cancel </a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="span4">
+                <div id="reviews">
+                    <section class="utopia-widget recruit-info reviews">
+                        <div class="utopia-widget-title">
+                            <a class="btn btn-mini" href="#/recruit/<%= data.id %>/review"><img src="/img/icons/document.png" title="review"> Add Review</a>
+                            <span>Reviews</span>
+                        </div>
+                        <div class="utopia-widget-content">
+                            <% if (data.reviews.length == 0) { %>
+                                <div class="alert alert-info">No reviews have been added.</div>
+                            <% } %>
+                            <% _.each(data.reviews, function(review, i) { %>
+                                <% if (i != 0) { %> <hr/> <% } %>
+                                <p>
+                                    <h4><a href="#/recruit/<%= data.id %>/review/<%= review.id %>"><b><%= (review.type == 'RESUME') ? 'Resume Review' : 'Interview'%></b></a> completed by <%= review.interviewerFirstName || '' %> <%= review.interviewerLastName || '' %></span></h4>
+                                    <div class="comments"><%= review.overallComments %></div>
+                                    <div class="score">Overall Score: <%= review.overallScore %></div>
+                                    <h6><%= review.creationTime %></h6>
+                                </p>
+                            <% }); %>
+                        </div>
+                    </section>
+                </div>
+                <div id="documents">
+                    <section class="utopia-widget recruit-info">
+                        <div class="utopia-widget-title">
+                            <a id="add-document" class="btn btn-mini" href="#"><img src="/img/icons/document.png" title="document"> Add Document</a>
+                            <span>Documents</span>
+                        </div>
+                        <div class="utopia-widget-content  documents">
+                            <% if (data.documents.length == 0) { %>
+                                <div class="alert alert-info">No documents have been uploaded.</div>
+                            <% } %>
+                    
+                            <% _.each(data.documents, function(document, i) { %>
+                                <% if (i != 0) { %> <hr/> <% } %>
+                                <p>
+                                    <h4><img src="/img/icons2/document.png" class="utopia-icons2-small-img" title="document"> <a href="/api/document/view/<%= document.fileId %>" target="_blank"><%= document.filename %></a></h4>
+                                    <h6><%= document.creationTime %></h6>
+                                </p>
+                            <% }); %>
+                    
+                        </div>
+                    </section>
+                </div>
+                <div id="bucket-log">
+                    <section class="utopia-widget">
+                        <div class="utopia-widget-title">
+                            <span>Bucket Log</span>
+                        </div>
+                        <div class="utopia-widget-content">
+                            <% if (data.activities.length == 0) { %>
+                                <div class="alert alert-info">There has been no activity on this recruit.</div>
+                            <% } %>
+                            <% _.each(data.activities, function(activity, i) { %>
+                                <% if (i != 0) { %> <hr/> <% } %>
+                                <p>
+                                    <h4><span class="label label-success"><%= activity.interviewerUsername %></span> <%= activity.description %></h4>
+                                    <h6><%= activity.creationTime %></h6>
+                                </p>
+                            <% }); %>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

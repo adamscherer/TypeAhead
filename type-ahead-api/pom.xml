@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.type-ahead</groupId>
+    <artifactId>type-ahead-api</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>type-ahead-api</name>
+
+    <developers>
+        <developer>
+            <id>ascherer</id>
+            <name>Adam Scherer</name>
+            <email>adam@annconia.com</email>
+            <roles>
+                <role>Project Admin</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>+5</timezone>
+        </developer>
+        <developer>
+            <id>mrusso</id>
+            <name>Mario Russo</name>
+            <email>mario@annconia.com</email>
+            <roles>
+                <role>Project Admin</role>
+                <role>Developer</role>
+            </roles>
+            <timezone>+4</timezone>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.annconia</groupId>
+            <artifactId>annconia-api-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>7.2.2.v20101205</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppConfig>
+                        <contextPath>/api</contextPath>
+                        <jettyEnvXml>${basedir}/src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
+                    </webAppConfig>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>8083</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>application.root</name>
+                            <value>${basedir}</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.springframework.build.aws</groupId>
+                <artifactId>org.springframework.build.aws.maven</artifactId>
+                <version>3.0.0.RELEASE</version>
+            </extension>
+        </extensions>
+    </build>
+    <repositories>
+        <repository>
+            <id>annconia-milestone</id>
+            <url>http://annconia-repo.s3.amazonaws.com/milestone</url>
+        </repository>
+        <repository>
+            <id>annconia-snapshot</id>
+            <url>http://annconia-repo.s3.amazonaws.com/snapshot</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>annconia-milestone</id>
+            <name>Annconia Milestone Repository</name>
+            <url>s3://annconia-repo/milestone</url>
+        </repository>
+        <snapshotRepository>
+            <id>annconia-snapshot</id>
+            <name>Annconia Snapshot Repository</name>
+            <url>s3://annconia-repo/snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

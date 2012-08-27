@@ -1,0 +1,45 @@
+<section class="utopia-widget statistics-widget">
+
+    <div class="utopia-widget-title">
+        <img src="/img/icons/list.png" class="utopia-widget-icon">
+        <span>Recruit Statistics</span>
+    </div>
+
+    <div class="utopia-widget-content">
+        <div class="row-fluid">
+            <div class="span12">
+                <h3>Top Schools</h3>
+                <% if (data.schools.length == 0) { %>
+                    <div class="alert alert-info">There have been no schools identified.</div>
+                <% } %>
+                <ul class="list-renderer">
+                    <% 
+                        _.each(data.schools, function(school) {
+                    %>
+                        <li>
+                            <span class="name"><%= school.name %></span>
+                            <span class="value"><%= school.percent %>%</span>
+                        </li>
+                    <% }); %>
+                </ul>
+                
+                <h3>Top Majors</h3>
+                
+                <% if (data.majors.length == 0) { %>
+                    <div class="alert alert-info">There have been no majors identified.</div>
+                <% } %>
+                
+                <ul class="list-renderer">
+                    <% 
+                        _.each(data.majors, function(major) {
+                    %>
+                        <li>
+                            <span class="name"><%= major.name %></span>
+                            <span class="value"><%= major.percent %>%</span>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

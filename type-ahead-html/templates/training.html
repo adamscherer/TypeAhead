@@ -1,0 +1,73 @@
+<div class="row-fluid">
+
+    <div class="span12">
+        <section class="utopia-widget">
+            <div class="utopia-widget-title">
+                <a class="btn btn-primary btn-small x-add-question" href="#"><i class="icon-question-sign icon-white"></i> Add Question</a>
+                <img src="/img/icons/paragraph_justify.png" class="utopia-widget-icon">
+                <span>All Questions</span>
+            </div>
+        
+            <div class="utopia-widget-content">
+        
+                <table class="table table-bordered">
+        
+                    <colgroup>
+                        <col class="utopia-col-0">
+                        <col class="utopia-col-1">
+                        <col class="utopia-col-0">
+                    </colgroup>
+        
+                    <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Category</th>
+                        <th style="width: 100px">Actions</th>
+                    </tr>
+                    </thead>
+        
+                    <tbody>
+                        <% _.each(data.models, function(question, i) { %>
+                            <tr>
+                                <td><%= question.question%></td>
+                                <td><%= question.category%></td>
+                                <td data-id="<%= question.id%>">
+                                    <a href="javascript:void(0)" class="edit"><img src="/img/icons/pencil.png" alt="Edit"></a>
+                                    <a href="javascript:void(0)" class="delete"><img src="/img/icons/trash_can.png" alt="Delete"></a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="dataTables_length">
+                            <label>
+                                <select id="totalRows">
+                                    <option value="5" <% if (data.pagination.size == 5) { %>selected="selected"<% } %>>5</option>
+                                    <option value="10" <% if (data.pagination.size == 10) { %>selected="selected"<% } %>>10</option>
+                                    <option value="25" <% if (data.pagination.size == 25) { %>selected="selected"<% } %>>25</option>
+                                    <option value="50" <% if (data.pagination.size == 50) { %>selected="selected"<% } %>>50</option>
+                                    <option value="100" <% if (data.pagination.size == 100) { %>selected="selected"<% } %>>100</option>
+                                </select>
+                                rows per page
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="span6">
+                        <div class="pagination pagination-right" data-page="<%= data.pagination.number + 1 %>">
+                          <ul>
+                            <li <% if (data.pagination.firstPage) { %>class="disabled"<% } %>><a href="#" class="prev">&laquo;</a></li>
+                            <li class="active"><a href="#"><%= (data.pagination.number * data.pagination.size) + 1 %> - <%= ((data.pagination.number * data.pagination.size)) + data.pagination.numberOfElements %> of <%= data.pagination.totalElements %></a></li>
+                            <li <% if (data.pagination.lastPage) { %>class="disabled"<% } %>><a href="#" class="next">&raquo;</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</div>

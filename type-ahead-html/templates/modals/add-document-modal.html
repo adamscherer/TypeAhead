@@ -1,0 +1,24 @@
+<div class="modal hide fade">
+    <form id="validation" action="/api/document/upload" method="post" enctype="multipart/form-data" class="form-horizontal" target="upload_iframe">
+    <div class="modal-body">
+        <div class="alert alert-error hide">
+            <strong>Hmmm...</strong> Double check your username and password and try submitting again.
+        </div>
+        <input type="hidden" name="htmlJsCallback" value="window.parent.addDocumentCallback" />
+        <input type="hidden" name="recruitId" value="<%= id %>" />
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="input" >Add Resume:</label>
+
+                <div class="controls fileupload-buttonbar">
+                    <input type="file" multiple="" name="file">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <button class="btn btn-primary" type="submit">Upload</button>
+    </div>
+    </form>
+</div>

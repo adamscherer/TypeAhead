@@ -1,0 +1,44 @@
+<div class="modal hide fade">
+
+    <form id="validation" action="/api/recruit" method="post" enctype="multipart/form-data" class="" target="upload_iframe">
+    <div class="modal-body" >
+        <div class="alert alert-error hide">
+            <strong>Hmmm...</strong> Double check your username and password and try submitting again.
+        </div>
+        <input type="hidden" name="htmlJsCallback" value="window.parent.addRecruitCallback" />
+        <input type="hidden" name="resume" value="true" />
+        <div class="login-box">
+            <div class="control-group">
+                <label class="control-label" for="firstName"><b>First Name</b></label>
+                <div class="controls">
+                    <input id="firstName" class="span5" type="text" name="firstName" value="">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="lastName"><b>Last Name</b></label>
+                <div class="controls">
+                    <input id="lastName" class="span5" type="text" name="lastName" value="">
+                    <br>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="school"><b>School</b></label>
+                <div class="controls">
+                    <input id="school" class="span5" type="text" name="education[0].name" value="" data-provide="typeahead-school" autocomplete="off">
+                </div>
+                <input type="hidden" name="education[0].current" value="true" />
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="resume" ><b>Add Resume</b></label>
+                <div class="controls fileupload-buttonbar">
+                    <input id="resume" type="file" multiple="" name="file" style="font-size: 14px">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <button class="btn btn-primary" type="submit">Add recruit</button>
+    </div>
+    </form>
+</div>

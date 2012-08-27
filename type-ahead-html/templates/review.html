@@ -1,0 +1,108 @@
+<div class="row-fluid">
+
+    <div class="span12">
+        <ul class="breadcrumb">
+            <li>
+                <a href="#/recruits">Recuits</a><span class="divider">/</span>
+            </li>
+            <li>
+                <a href="#/recruit/<%= data.recruit.id %>"><%= data.recruit.firstName %> <%= data.recruit.lastName %></a><span class="divider">/</span>
+            </li>
+            <li class="active">
+                Review
+            </li>
+        </ul>
+        <section class="utopia-widget form-horizontal">
+
+            <div class="utopia-widget-content recruit-body">
+                <div class="control-group">
+                    <label class="control-label">Review Type</label>
+                    <div class="controls">
+                        <div class="btn-group review-toggle" data-toggle="buttons-radio">
+                            <button class="btn <% if (data.review.type == 'RESUME') { %>active <% } %>" data-toggle="button" data-value="RESUME" data-section="#resume-section">
+                                Resume Review
+                            </button>
+                            <button class="btn <% if (data.review.type == 'INTERVIEW') { %>active <% } %>" data-toggle="button" data-value="INTERVIEW" data-section="#interview-section">
+                                Interview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-horizontal">
+                    <input type="hidden" id="type" name="type" value="<%= data.review.type || 'RESUME'%>" />
+                    <div class="control-group">
+                        <label class="control-label" for="interviewerId">Interviewer</label>
+                        <div class="controls">
+                            <select id="interviewerId" name="interviewerId">
+                                <option value=""></option>
+                                <% _.each(data.interviewers, function(interviewer, i) { %>
+                                    <option value="<%= interviewer.id %>" <% if (data.review.interviewerId == interviewer.id) { %>selected="selected" <% } %>><%= interviewer.firstName || '' %> <%= interviewer.lastName || '' %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" id="comments">Overall Comments</label>
+                        <div class="controls">
+                            <textarea class="input-xlarge" id="comments" name="overallComments" rows="4"><%= data.review.overallComments || '' %></textarea>
+                        </div>
+                    </div>
+                    
+                    <div id="resume-section" class="section <% if (data.review.type != 'RESUME') { %>hide <% } %>">
+                        <div class="control-group">
+                            <label class="control-label">Rating</label>
+                            <div class="controls">
+                                <div class="btn-group rating" data-toggle="buttons-radio">
+                                    <button class="btn <% if (data.review.overallScore == 1) { %>active <% } %>" data-toggle="button" data-value="1" data-label="I'd pass">
+                                        1
+                                    </button>
+                                    <button class="btn <% if (data.review.overallScore == 2) { %>active <% } %>" data-toggle="button" data-value="2" data-label="I'm hesitant">
+                                        2
+                                    </button>
+                                    <button class="btn <% if (data.review.overallScore == 3) { %>active <% } %>" data-toggle="button" data-value="3" data-label="Worth an interview">
+                                        3
+                                    </button>
+                                    <button class="btn <% if (data.review.overallScore == 4) { %>active <% } %>" data-toggle="button" data-value="4" data-label="I'm optimistic">
+                                        4
+                                    </button>
+                                    <button class="btn <% if (data.review.overallScore == 5) { %>active <% } %>" data-toggle="button" data-value="5" data-label="Looks awesome">
+                                        5
+                                    </button>
+                                    <div class="rating-label">&nbsp;</div>
+                                    <input type="hidden" name="overallScore" value="<%= data.review.overallScore || '' %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Save changes
+                            </button>
+                            <a class="btn" href="#/recruit/<%= data.recruit.id %>">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="interview-section" class="section <% if (data.review.type == 'RESUME') { %>hide <% } %>">
+
+                        <div class="control-group">
+                            <label class="control-label">Questions</label>
+                            <div class="controls docs-input-sizes">
+    
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Save changes
+                            </button>
+                            <a class="btn" href="#/recruit/<%= data.recruit.id %>">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
