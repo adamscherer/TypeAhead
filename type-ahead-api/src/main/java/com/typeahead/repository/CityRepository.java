@@ -1,11 +1,12 @@
 package com.typeahead.repository;
 
-import cleo.search.TypeaheadElement;
-
+import com.typeahead.entity.City;
 import com.typeahead.entity.TypeAheadResponse;
 
 public interface CityRepository {
 
-	public TypeAheadResponse<TypeaheadElement> getCities(String query, int size);
-	
+	public TypeAheadResponse<City> getCities(String query, int size);
+
+	public TypeAheadResponse<City> getCitiesByTerm(String query, int size);
+
 }
