@@ -9,12 +9,22 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
 http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.1.xsd">
 
-    <import resource="classpath:recruitbucket/mongo-context.xml" />
     <import resource="classpath:web-context.xml" />
-    <import resource="classpath:com/annconia/security/app-context.xml" />
-    <context:component-scan base-package="com.annconia.api.controller" />
-    <context:component-scan base-package="com.roundarch.controller" />
-    
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="alwaysUseFullPath" value="true" />
+        <property name="interceptors">
+            <list>
+                <bean class="com.annconia.api.interceptor.WebPerformanceInterceptor" />
+                <bean class="com.annconia.api.interceptor.RequestContextInterceptor" />
+                <!--
+                <bean class="com.annconia.api.interceptor.SessionContextInterceptor" />
+                <bean class="com.annconia.api.interceptor.ApiInterceptor" />
+                -->
+            </list>
+        </property>
+    </bean>
+    <context:component-scan base-package="com.typeahead.repository" />
+    <context:component-scan base-package="com.typeahead.controller" />
     <mvc:default-servlet-handler />
 
 </beans>
