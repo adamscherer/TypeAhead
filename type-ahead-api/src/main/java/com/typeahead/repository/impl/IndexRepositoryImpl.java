@@ -37,6 +37,10 @@ public abstract class IndexRepositoryImpl<T extends Element> {
 
 	public abstract void load() throws Exception;
 
+	public abstract String configPath();
+
+	public abstract String name();
+
 	@PostConstruct
 	public void init() throws Exception {
 		initCleo();
@@ -49,13 +53,13 @@ public abstract class IndexRepositoryImpl<T extends Element> {
 
 		List<Typeahead<T>> searcherList = new ArrayList<Typeahead<T>>();
 
-		GenericTypeahead<T> gta = createTypeahead(new ClassPathResource("/search/i001.config").getFile());
+		GenericTypeahead<T> gta = createTypeahead(new ClassPathResource(configPath()).getFile());
 		indexerList.add(gta);
 		searcherList.add(gta);
 
-		indexer = new MultiIndexer<T>(this.getClass().getName(), indexerList);
+		indexer = new MultiIndexer<T>(name(), indexerList);
 
-		searcher = new MultiTypeahead<T>(this.getClass().getName(), searcherList);
+		searcher = new MultiTypeahead<T>(name(), searcherList);
 	}
 
 	public Indexer<T> getIndexer() {
@@ -75,7 +79,7 @@ public abstract class IndexRepositoryImpl<T extends Element> {
 	}
 
 	public TypeAheadResponse<T> searchTerms(String query, int size) {
-		Collector<T> collector = new SortedCollector<T>(10, 100);
+		Collector<T> collector = new SortedCollector<T>(size, 100);
 		collector = getSearcher().search(0, createTerms(query), collector);
 
 		return new TypeAheadResponse<T>(collector.elements(), collector.size());

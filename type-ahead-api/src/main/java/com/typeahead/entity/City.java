@@ -1,18 +1,13 @@
 package com.typeahead.entity;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-
 import cleo.search.SimpleElement;
 
 public class City extends SimpleElement {
 
 	private static final long serialVersionUID = 1L;
 
-	@JsonIgnore
-	private String id;
 	private String city;
 	private String state;
-	private int zip;
 	private int pop;
 
 	private double[] loc;
@@ -23,14 +18,6 @@ public class City extends SimpleElement {
 
 	public City(int id) {
 		super(id);
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getCity() {
@@ -63,14 +50,6 @@ public class City extends SimpleElement {
 
 	public void setLoc(double[] loc) {
 		this.loc = loc;
-	}
-
-	public int getZip() {
-		return zip;
-	}
-
-	public void setZip(int zip) {
-		this.zip = zip;
 	}
 
 }
