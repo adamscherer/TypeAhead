@@ -22,11 +22,11 @@ public class StateRepositoryImpl extends IndexRepositoryImpl<State> implements S
 		List<String> lines = IOUtils.readLines(resource.getInputStream());
 		for (String line : lines) {
 			State value = JsonUtils.fromJson(line, State.class);
-			loadIndex(value);
+			//loadIndex(value);
 			loadTrie(value);
 		}
 
-		getIndexer().flush();
+		//getIndexer().flush();
 	}
 
 	public String configPath() {

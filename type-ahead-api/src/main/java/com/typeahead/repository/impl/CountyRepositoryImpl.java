@@ -26,7 +26,7 @@ public class CountyRepositoryImpl extends IndexRepositoryImpl<County> implements
 			loadTrie(value);
 		}
 
-		getIndexer().flush();
+		//getIndexer().flush();
 	}
 
 	public String configPath() {
@@ -42,7 +42,7 @@ public class CountyRepositoryImpl extends IndexRepositoryImpl<County> implements
 	}
 
 	protected void loadTrie(County value) throws Exception {
-		getTrie().put(StringUtils.lowerCase(value.getState()) + ", " + StringUtils.lowerCase(value.getState()), value);
+		getTrie().put(StringUtils.lowerCase(value.getCounty()) + ", " + StringUtils.lowerCase(value.getState()), value);
 	}
 
 	public TypeAheadResponse<County> getCounties(String query, int size) {

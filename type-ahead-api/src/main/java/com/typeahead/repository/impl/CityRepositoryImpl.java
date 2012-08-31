@@ -21,11 +21,11 @@ public class CityRepositoryImpl extends IndexRepositoryImpl<City> implements Cit
 		List<String> lines = IOUtils.readLines(resource.getInputStream());
 		for (String line : lines) {
 			City city = JsonUtils.fromJson(line, City.class);
-			loadIndex(city);
+			//loadIndex(city);
 			loadTrie(city);
 		}
 
-		getIndexer().flush();
+		//getIndexer().flush();
 	}
 	
 	public String configPath() {

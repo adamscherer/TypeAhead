@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.1.xsd">
+
+    <bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
+        <property name="host" value="127.0.0.1" />
+        <property name="port" value="27017" />
+    </bean>
+    <bean id="mongoDbFactory" class="org.springframework.data.mongodb.core.SimpleMongoDbFactory">
+        <constructor-arg name="mongo" ref="mongo" />
+        <constructor-arg name="databaseName" value="recruitbucket" />
+    </bean>
+    <bean id="mongoDeleteDbFactory" class="org.springframework.data.mongodb.core.SimpleMongoDbFactory">
+        <constructor-arg name="mongo" ref="mongo" />
+        <constructor-arg name="databaseName" value="recruitbucket-archive" />
+    </bean>
+    <bean id="mongoContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext" />
+    <bean id="mongoConverter" class="org.springframework.data.mongodb.core.convert.MappingMongoConverter">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+        <constructor-arg name="mappingContext" ref="mongoContext" />
+        <property name="mapKeyDotReplacement" value="#" />
+    </bean>
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+        <constructor-arg name="mongoConverter" ref="mongoConverter" />
+    </bean>
+    <bean id="mongoDeleteArchive" class="com.annconia.api.repository.BeforeDeleteListener">
+        <property name="mongoOperations">
+            <bean class="org.springframework.data.mongodb.core.MongoTemplate">
+                <constructor-arg name="mongoDbFactory" ref="mongoDeleteDbFactory" />
+                <constructor-arg name="mongoConverter" ref="mongoConverter" />
+            </bean>
+        </property>
+    </bean>
+    <bean id="gridfsDb" factory-bean="mongoTemplate" factory-method="getDb" />
+    <bean id="resumeRepository" class="com.roundarch.repository.impl.DocumentRepositoryImpl">
+        <constructor-arg index="0" name="gridfsDb" ref="gridfsDb" />
+    </bean>
+    <bean id="lookupRepository" class="com.roundarch.repository.impl.LookupDataRepositoryImpl" />
+    <mongo:repositories base-package="com.annconia.security.repository" create-query-indexes="true" />
+    <mongo:repositories base-package="com.roundarch.repository" create-query-indexes="true" />
+    <bean class="com.annconia.api.repository.BeforeSaveMongoValidator" />
+    <bean class="com.annconia.api.repository.BeforeSaveMongoMetadata" />
+    <context:component-scan base-package="com.roundarch.repository" />
+</beans>

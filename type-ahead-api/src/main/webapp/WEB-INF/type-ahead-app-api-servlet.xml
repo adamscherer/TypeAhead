@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util" xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.1.xsd">
+
+    <import resource="classpath:web-context.xml" />
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="alwaysUseFullPath" value="true" />
+        <property name="interceptors">
+            <list>
+                <bean class="com.annconia.api.interceptor.WebPerformanceInterceptor" />
+                <bean class="com.annconia.api.interceptor.RequestContextInterceptor" />
+                <bean class="com.annconia.api.interceptor.SessionContextInterceptor" />
+                <bean class="com.annconia.api.interceptor.ApiInterceptor" />
+            </list>
+        </property>
+    </bean>
+    <context:component-scan base-package="com.typeahead.repository" />
+    <context:component-scan base-package="com.typeahead.controller" />
+    <mvc:default-servlet-handler />
+
+</beans>

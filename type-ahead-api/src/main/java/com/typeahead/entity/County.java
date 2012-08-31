@@ -20,6 +20,10 @@ public class County extends SimpleElement {
 		super(id);
 	}
 
+	public String getName() {
+		return county + ", " + state;
+	}
+
 	public String getCounty() {
 		return county;
 	}

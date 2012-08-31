@@ -19,6 +19,10 @@ public class State extends SimpleElement {
 		super(id);
 	}
 
+	public String getName() {
+		return state;
+	}
+
 	public String getState() {
 		return state;
 	}

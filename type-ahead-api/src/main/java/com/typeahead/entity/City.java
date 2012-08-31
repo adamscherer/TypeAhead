@@ -20,6 +20,10 @@ public class City extends SimpleElement {
 		super(id);
 	}
 
+	public String getName() {
+		return city + ", " + state;
+	}
+	
 	public String getCity() {
 		return city;
 	}

@@ -30,7 +30,7 @@
     </script>
 </head>
 <body>
-<div id="main-body" class="container-fluid hide">
+<div id="main-body" class="container-fluid">
 
     <!-- Header starts -->
     <div id="header" class="row-fluid"></div>
@@ -38,18 +38,36 @@
     <!-- Header ends -->
     <div class="row-fluid">
 
-        <!-- Sidebar start -->
-        <div id="sidebar" class="span2 sidebar-container"></div>
-
         <!-- Body start -->
-        <div id="body" class="span10 body-container">
-            <div id="dashboard-body" class="body-page"></div>
-            <div id="recruits-body" class="body-page"></div>
-            <div id="interviewers-body" class="body-page"></div>
-            <div id="geolocation-body" class="body-page"></div>
-            <div id="training-body" class="body-page"></div>
-            <div id="review-body" class="body-page"></div>
-            <div id="recruit-body" class="body-page"></div>
+        <div id="body" class="span12 body-container">
+        <form class="" action="/">
+            <div class="login-box">
+                <div class="control-group" >
+                    <label class="control-label">City</label>
+                    <input name="city" type="text" class="span12" data-provide="typeahead-city">
+                </div>
+                <div class="control-group" >
+                    <label class="control-label">City Terms</label>
+                    <input name="city" type="text" class="span12" data-provide="typeahead-city-terms">
+                </div>
+                <div class="control-group" >
+                    <label class="control-label">County</label>
+                    <input name="county" type="text" class="span12" data-provide="typeahead-county">
+                </div>
+                <div class="control-group" >
+                    <label class="control-label">County Terms</label>
+                    <input name="county" type="text" class="span12" data-provide="typeahead-county-terms">
+                </div>
+                <div class="control-group" >
+                    <label class="control-label">State</label>
+                    <input name="state" type="text" class="span12" data-provide="typeahead-state">
+                </div>
+                <div class="control-group" >
+                    <label class="control-label">State Terms</label>
+                    <input name="state" type="text" class="span12" data-provide="typeahead-state-terms">
+                </div>
+            </div>
+        </form>
         </div>
         <!-- Body end -->
 
