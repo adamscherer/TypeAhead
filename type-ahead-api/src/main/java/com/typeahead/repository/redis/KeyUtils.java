@@ -1,17 +1,22 @@
 package com.typeahead.repository.redis;
 
-abstract class KeyUtils {
+
+public abstract class KeyUtils {
 	static final String UID = "uid:";
 
-	static String hits(String uid) {
-		return UID + uid + ":following";
+	public static String rateLimit(String uid, long expire) {
+		return UID + uid + ":rate:" + expire;
 	}
 
-	static String credits(String uid) {
-		return UID + uid + ":followers";
+	public static String hits(String uid) {
+		return UID + uid + ":hits";
 	}
 
-	static String apiKey(String auth) {
+	public static String credits(String uid) {
+		return UID + uid + ":credits";
+	}
+
+	public static String apiKey(String auth) {
 		return "api:" + auth;
 	}
 
@@ -19,11 +24,11 @@ abstract class KeyUtils {
 		return "user:" + name + ":uid";
 	}
 
-	static String users() {
+	public static String users() {
 		return "users";
 	}
 
-	static String acounts() {
+	public static String acounts() {
 		return "acounts";
 	}
 

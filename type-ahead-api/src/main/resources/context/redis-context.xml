@@ -9,12 +9,11 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
 http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.1.xsd">
 
-    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:use-pool="true"/>
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:use-pool="true" p:host-name="localhost" p:port="6379"/>
 
     <!-- redis template definition -->
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
-    p:connection-factory-ref="jedisConnectionFactory"/>
     <bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"
     p:connection-factory-ref="jedisConnectionFactory"/>
+    <bean id="redisRepository" class="com.typeahead.repository.redis.RedisRepository" />
 
 </beans>
