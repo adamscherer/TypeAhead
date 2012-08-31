@@ -15,11 +15,11 @@ http://www.springframework.org/schema/data/mongo http://www.springframework.org/
     </bean>
     <bean id="mongoDbFactory" class="org.springframework.data.mongodb.core.SimpleMongoDbFactory">
         <constructor-arg name="mongo" ref="mongo" />
-        <constructor-arg name="databaseName" value="recruitbucket" />
+        <constructor-arg name="databaseName" value="typeahead" />
     </bean>
     <bean id="mongoDeleteDbFactory" class="org.springframework.data.mongodb.core.SimpleMongoDbFactory">
         <constructor-arg name="mongo" ref="mongo" />
-        <constructor-arg name="databaseName" value="recruitbucket-archive" />
+        <constructor-arg name="databaseName" value="typeahead-archive" />
     </bean>
     <bean id="mongoContext" class="org.springframework.data.mongodb.core.mapping.MongoMappingContext" />
     <bean id="mongoConverter" class="org.springframework.data.mongodb.core.convert.MappingMongoConverter">
@@ -39,14 +39,10 @@ http://www.springframework.org/schema/data/mongo http://www.springframework.org/
             </bean>
         </property>
     </bean>
-    <bean id="gridfsDb" factory-bean="mongoTemplate" factory-method="getDb" />
-    <bean id="resumeRepository" class="com.roundarch.repository.impl.DocumentRepositoryImpl">
-        <constructor-arg index="0" name="gridfsDb" ref="gridfsDb" />
-    </bean>
-    <bean id="lookupRepository" class="com.roundarch.repository.impl.LookupDataRepositoryImpl" />
+
     <mongo:repositories base-package="com.annconia.security.repository" create-query-indexes="true" />
-    <mongo:repositories base-package="com.roundarch.repository" create-query-indexes="true" />
+
     <bean class="com.annconia.api.repository.BeforeSaveMongoValidator" />
     <bean class="com.annconia.api.repository.BeforeSaveMongoMetadata" />
-    <context:component-scan base-package="com.roundarch.repository" />
+
 </beans>

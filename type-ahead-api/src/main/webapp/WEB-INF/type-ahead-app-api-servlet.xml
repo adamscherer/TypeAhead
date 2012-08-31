@@ -21,8 +21,9 @@ http://www.springframework.org/schema/data/mongo http://www.springframework.org/
             </list>
         </property>
     </bean>
-    <context:component-scan base-package="com.typeahead.repository" />
-    <context:component-scan base-package="com.typeahead.controller" />
+    <context:component-scan base-package="com.typeahead.controller.app" />
+    <import resource="classpath:com/annconia/security/app-context.xml" />
+    <context:component-scan base-package="com.annconia.api.controller" />
     <mvc:default-servlet-handler />
 
 </beans>

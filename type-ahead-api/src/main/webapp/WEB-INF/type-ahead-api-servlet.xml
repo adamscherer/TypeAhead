@@ -16,15 +16,12 @@ http://www.springframework.org/schema/data/mongo http://www.springframework.org/
             <list>
                 <bean class="com.annconia.api.interceptor.WebPerformanceInterceptor" />
                 <bean class="com.annconia.api.interceptor.RequestContextInterceptor" />
-                <!--
-                <bean class="com.annconia.api.interceptor.SessionContextInterceptor" />
-                <bean class="com.annconia.api.interceptor.ApiInterceptor" />
-                -->
+                <bean class="com.typeahead.interceptor.CreditsInterceptor" />
             </list>
         </property>
     </bean>
-    <context:component-scan base-package="com.typeahead.repository" />
-    <context:component-scan base-package="com.typeahead.controller" />
+    
+    <context:component-scan base-package="com.typeahead.controller.service" />
     <mvc:default-servlet-handler />
 
 </beans>

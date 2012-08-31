@@ -1,4 +1,4 @@
-package com.typeahead.controller;
+package com.typeahead.controller.service;
 
 import org.springframework.stereotype.Controller;
 

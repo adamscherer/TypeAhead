@@ -1,4 +1,4 @@
-package com.typeahead.controller;
+package com.typeahead.controller.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.typeahead.interceptor.CreditLimit;
 import com.typeahead.repository.CityRepository;
 import com.typeahead.repository.CountyRepository;
 import com.typeahead.repository.StateRepository;
 
 @Controller
-public class MonitoringController extends TypeAheadController {
+public class PlacesController extends TypeAheadController {
 
 	@Autowired(required = false)
 	private CityRepository cityRepository;
@@ -24,6 +25,7 @@ public class MonitoringController extends TypeAheadController {
 	@Autowired(required = false)
 	private StateRepository stateRepository;
 
+	@CreditLimit
 	@RequestMapping(value = "/city", params = "q")
 	@ResponseBody
 	public ResponseEntity<Object> city(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {

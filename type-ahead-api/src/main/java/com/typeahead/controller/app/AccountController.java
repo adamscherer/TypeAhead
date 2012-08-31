@@ -1,4 +1,4 @@
-package com.typeahead.controller;
+package com.typeahead.controller.app;
 
 import javax.annotation.PostConstruct;
 

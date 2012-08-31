@@ -1,5 +1,9 @@
 package com.typeahead.repository.redis;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import com.annconia.util.DateUtils;
 
 public abstract class KeyUtils {
 	static final String UID = "uid:";
@@ -10,6 +14,10 @@ public abstract class KeyUtils {
 
 	public static String hits(String uid) {
 		return UID + uid + ":hits";
+	}
+
+	public static String hitsHourly(String uid) {
+		return UID + uid + ":hits:" + DateUtils.truncate(new Date(), Calendar.HOUR).getTime();
 	}
 
 	public static String credits(String uid) {
