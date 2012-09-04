@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.annconia.api.ApiException;
 import com.annconia.api.interceptor.RateLimitException;
 import com.annconia.security.repository.SecurityUserRepository;
 import com.typeahead.interceptor.CreditsRequiredException;
@@ -72,7 +73,7 @@ public class RedisIntegrationTest {
 		}
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = ApiException.class)
 	public void nullApiKey() {
 		repository.validateCredits(null, 100);
 	}

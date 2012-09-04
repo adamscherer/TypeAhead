@@ -22,7 +22,7 @@ public class CountyRepositoryImpl extends IndexRepositoryImpl<County> implements
 		List<String> lines = IOUtils.readLines(resource.getInputStream());
 		for (String line : lines) {
 			County value = JsonUtils.fromJson(line, County.class);
-			loadIndex(value);
+			//loadIndex(value);
 			loadTrie(value);
 		}
 

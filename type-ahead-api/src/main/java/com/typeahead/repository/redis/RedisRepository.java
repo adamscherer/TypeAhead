@@ -11,8 +11,8 @@ import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.Assert;
 
+import com.annconia.api.ApiException;
 import com.annconia.api.interceptor.RateLimitException;
 import com.annconia.util.DateUtils;
 import com.annconia.util.StringUtils;
@@ -36,18 +36,20 @@ public class RedisRepository {
 	@SuppressWarnings("all")
 	public void validateCredits(String apiKey, int hitsPerCredit) {
 
-		Assert.notNull(apiKey);
+		if (StringUtils.isEmpty(apiKey)) {
+			throw new ApiException("api.key.required");
+		}
 
 		final String creditsKey = KeyUtils.credits(apiKey);
 		long credits = StringUtils.parseLong(redisTemplate.opsForValue().get(creditsKey));
 		if (credits < 1) {
-			throw new CreditsRequiredException("Not enough credits to execute api.");
+			throw new CreditsRequiredException("not.enough.credits");
 		}
 
 		final String hitsKey = KeyUtils.hits(apiKey);
 		long hits = StringUtils.parseLong(redisTemplate.opsForValue().get(hitsKey));
 		if (((double) hits / hitsPerCredit) > credits) {
-			throw new CreditsRequiredException("Not enough credits to execute api.");
+			throw new CreditsRequiredException("not.enough.credits");
 		}
 
 		final String hitsHourlyKey = KeyUtils.hitsHourly(apiKey);

@@ -1,12 +1,10 @@
 package com.typeahead.interceptor;
 
-public class CreditsRequiredException extends RuntimeException {
+import com.annconia.api.ApiException;
+
+public class CreditsRequiredException extends ApiException {
 
 	private static final long serialVersionUID = 1L;
-
-	public CreditsRequiredException() {
-		super();
-	}
 
 	public CreditsRequiredException(String msg) {
 		super(msg);

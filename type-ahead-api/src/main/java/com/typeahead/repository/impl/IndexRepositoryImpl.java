@@ -43,7 +43,7 @@ public abstract class IndexRepositoryImpl<T extends Element> {
 
 	@PostConstruct
 	public void init() throws Exception {
-		initCleo();
+		//initCleo();
 		load();
 	}
 
