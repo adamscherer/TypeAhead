@@ -31,6 +31,14 @@ version="3.0">
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>type-ahead-app-api</servlet-name>
+        <url-pattern>/account/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>type-ahead-app-api</servlet-name>
+        <url-pattern>/manage/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>type-ahead-api</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>

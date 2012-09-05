@@ -8,10 +8,12 @@ public class Account extends AbstractEntity {
 
 	private String apiKey;
 	private String name;
+	private String ownerId;
 	private String[] users;
 	private int totalCredits;
 	private int usedCredits;
 	private List<PurchaseLog> purchases;
+	private boolean confirmed;
 
 	public String getName() {
 		return name;
@@ -27,6 +29,14 @@ public class Account extends AbstractEntity {
 
 	public void setApiKey(String apiKey) {
 		this.apiKey = apiKey;
+	}
+
+	public String getOwnerId() {
+		return ownerId;
+	}
+
+	public void setOwnerId(String ownerId) {
+		this.ownerId = ownerId;
 	}
 
 	public String[] getUsers() {
@@ -59,6 +69,14 @@ public class Account extends AbstractEntity {
 
 	public void setPurchases(List<PurchaseLog> purchases) {
 		this.purchases = purchases;
+	}
+
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
 	}
 
 }

@@ -41,7 +41,7 @@ http://www.springframework.org/schema/data/mongo http://www.springframework.org/
     </bean>
 
     <mongo:repositories base-package="com.annconia.security.repository" create-query-indexes="true" />
-
+    <mongo:repositories base-package="com.typeahead.repository" create-query-indexes="true" />
     <bean class="com.annconia.api.repository.BeforeSaveMongoValidator" />
     <bean class="com.annconia.api.repository.BeforeSaveMongoMetadata" />
 
