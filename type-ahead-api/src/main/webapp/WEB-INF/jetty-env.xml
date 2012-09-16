@@ -3,7 +3,7 @@
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
 
 	<Call class="org.eclipse.jetty.util.log.Log" name="info">
-		<Arg>Starting RecruitBucket...</Arg>
+		<Arg>Starting TypeAhead...</Arg>
 	</Call>
 
 </Configure>
