@@ -1,0 +1,41 @@
+#==Skeleton==#
+Copyright 2011, Dave Gamache
+ - Free to use under the MIT license.
+ http://www.opensource.org/licenses/mit-license.php
+
+
+#==jQuery==#
+GNU General Public License (GPL) Version 2.
+
+
+#==jQuery hashchange event==#
+Dual licensed under the MIT and GPL licenses.
+ 
+http://benalman.com/about/license/
+
+
+#==FlexSlider==#
+Copyright 2011, Tyler Smith
+ - Free to use under the MIT license.
+ http://www.opensource.org/licenses/mit-license.php
+
+
+
+#==Monochrome Icons==#
+Copyright Gentleface, Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+http://creativecommons.org/licenses/by/3.0/
+
+
+#==Open Sans Fonts==#
+Apache License 
+
+Version 2.0
+
+
+#==CssMin==#
+Copyright 2011, Joe Scylla - Free to use under the MIT license.
+ http://opensource.org/licenses/mit-license.php
+
+
+#==JsMinPlus==#
+Copyright 2011, Tino Zijdel - MPL 1.1/GPL 2.0/LGPL 2.1 http://www.mozilla.org/MPL/

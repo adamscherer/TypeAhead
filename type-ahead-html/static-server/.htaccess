@@ -1,0 +1,9 @@
+# PHP configuration
+# Depending on server configuration you might need to use a local php.ini to configure those, and the bellowing lines might generate a 500 code error.
+# 1and1 hosting: http://faq.1and1.com/scripting_languages_supported/php/14.html
+# Site5 hosting: http://forums.site5.com/showthread.php?t=3689#1
+# Mediatemple GS hosting: http://kb.mediatemple.net/questions/137/How+can+I+edit+php.ini+on+the+%28gs%29+Grid-Service%3F
+# Ask your hosting compagny if the method bellow isn't supported.
+
+# Turn off automatic gzip compression for php-parsed files to avoid dual-gzipping
+#php_flag zlib.output_compression Off

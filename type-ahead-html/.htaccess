@@ -1,0 +1,18 @@
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule ^(min\-merge\-cache)=(css|js)\/(.*)$ /static-server/min-merge-cache.php?files=$3&format=$2 [NC,L,NS]
+
+# Gzip JS, CSS and HTML documents
+# Add far-future expiration date for JS, CSS and images
+RewriteRule ^$ /static-server/file-server.php?file=index&ext=html [NC,L,NS]
+RewriteRule ^(.*)\.(js|css|html|htm)$ /static-server/file-server.php?file=$1&ext=$2 [NC,L,NS]
+RewriteRule ^(images)\/(.*)\.(jpe?g|gif|ico|png|swf|flv)$ /static-server/file-server.php?file=$1/$2&ext=$3&img=1 [NC,L,NS]
+FileETag None
+</IfModule>
+
+# Turn on automatic gzip compression for php-parsed files (allows ajax.php to be gzipped)
+# IF YOU UN-COMMENT THIS YOU MUST UN-COMMENT THE ONE IN /static-server/.htaccess AS WELL
+#php_flag zlib.output_compression On

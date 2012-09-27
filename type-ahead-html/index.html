@@ -1,77 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Type-Ahead</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Type Ahead - Autocomplete Made Easy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Type-ahead services for your data needs">
-    <meta name="author" content="Adam Scherer">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="Adam Scherer, Mario Russo">
 
-    <link href="/css/main.css" type="text/css" rel="stylesheet"/>
-    
-    <script data-main="js/main" src="js/libs/require/require.js"></script>
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-32110165-1']);
       _gaq.push(['_trackPageview']);
-    
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-    
     </script>
-</head>
+    
+    <script src="/js/libs/jquery/jquery-1.7.2.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+  </head>
+
 <body>
-<div id="main-body" class="container-fluid">
 
-    <!-- Header starts -->
-    <div id="header" class="row-fluid"></div>
+<header class="navbar navbar-fixed-top">
+    <div class="container">
+        <a href="/" class="brand">
+            <img src="images/logo-2.png" alt="Spark" class="scale-with-grid" />
+        </a>
+        <div class="nav-collapse">
+            <ul class="nav pull-right actions">
+                <li><a href="#" class="btn" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                <li><a href="#home" class="active">Examples</a></li>
+                <li><a href="#features">Docs</a></li>
+                <li><a href="/about/">About us</a></li>
+                <li><a href="#pricing">Pricing + Signup</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom-gradient">
+        <span class="left"></span>
+        <span class="center"></span>
+        <span class="right"></span>
+    </div>  
+</header>
 
-    <!-- Header ends -->
-    <div class="row-fluid">
-
-        <!-- Body start -->
-        <div id="body" class="span12 body-container">
-        <form class="" action="/">
-            <div class="login-box">
-                <div class="control-group" >
-                    <label class="control-label">City</label>
-                    <input name="city" type="text" class="span12" data-provide="typeahead-city">
-                </div>
-                <div class="control-group" >
-                    <label class="control-label">City Terms</label>
-                    <input name="city" type="text" class="span12" data-provide="typeahead-city-terms">
-                </div>
-                <div class="control-group" >
-                    <label class="control-label">County</label>
-                    <input name="county" type="text" class="span12" data-provide="typeahead-county">
-                </div>
-                <div class="control-group" >
-                    <label class="control-label">County Terms</label>
-                    <input name="county" type="text" class="span12" data-provide="typeahead-county-terms">
-                </div>
-                <div class="control-group" >
-                    <label class="control-label">State</label>
-                    <input name="state" type="text" class="span12" data-provide="typeahead-state">
-                </div>
-                <div class="control-group" >
-                    <label class="control-label">State Terms</label>
-                    <input name="state" type="text" class="span12" data-provide="typeahead-state-terms">
+<article id="home">
+    <div class="container">
+        <div class="row box dark">
+            <div class="span5">
+                <div class="welcome-container">
+                <h1>Make it Yours</h1>
+                <p>Designed with the latest technologies and most advanced techniques, this one-page website loads lightning-fast!</p>
+                <p class="hide-for-mobile">The layout focus on usability, it offers enterprise-level features, design quality,
+                    technical implementation, compatibility, accessibility and performance.
+                </p>
+                <a href="#features" class="button call-to-action animate">Check Out The Features</a>
                 </div>
             </div>
-        </form>
+            
+            <div class="span7">
+                <img src="images/slides/crossbrowser.jpg" alt="" />     
+            </div>
+        </div><!-- .row -->
+        
+        <div class="row">
+            <div class="span4 headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-menu" />
+                <h4>Dynamic Menu</h4>
+                <p>Go Ahead, <a href="#features" class="animate">Scroll The Page</a></p>
+            </div>
+
+            <div class="span4 headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-layers" />
+                <h4>Responsive Grid Layout</h4>
+                <p>Go Ahead, Resize This Page</p>
+            </div>
+
+            <div class="span4 headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-resize" />
+                <h4>Browser History</h4>
+                <p>Go Ahead, Try The Back Button</p>
+            </div>
+        </div><!-- .row -->
+    
+        <div class="bottom-gradient between-rows">
+            <span class="left"></span>
+            <span class="center"></span>
+            <span class="right"></span>
         </div>
-        <!-- Body end -->
 
     </div>
+</article>
+
+
+<article id="features" class="dark">
+    <div class="container"> 
+        <div class="sixteen columns titleset">
+            <h2 class="remove-bottom">Features</h2>
+            <h6 class="subheader">Elegance, Performance, Full Features. No Compromise</h6>
+        </div>
+
+        <div class="row">
+            <div class="one-third column headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-dashboard" />
+                <h3>Built for Performance</h3>
+                <p>Techniques like CSS-sprites, asynchronous load and DOM events are intelligently used to improve page-load time and responsiveness.</p>
+            </div>
+
+            <div class="one-third column headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-globe" />
+                <h3>Cross-Browser</h3>
+                <p>Fully optimized for all browsers and mobile devices using progressive enhancement with graceful fallback. <strong>It's pixel perfect!</strong></p>
+            </div>
+
+            <div class="one-third column headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-link" />
+                <h3>Bookmarkable URLs</h3>
+                <p>This enterprise-level website offers dynamic URL updates,  meaning bookmarkable URLs and a fully functional browser history.</p>
+            </div>
+        </div><!-- .row -->
+        
+        <div class="row">
+            <div class="one-third column headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-grid" />
+                <h3>Flexible Layout</h3>
+                <p>Based on a lightweight 960 CSS grid and using advanced Media Queries, this website offers a <strong>responsive grid down to mobile</strong>. Go ahead, resize this page!</p>
+            </div>
+
+            <div class="one-third column headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-cloud" />
+                <h3>Smart CDN Fallback</h3>
+                <p>Providing CDN-based components results in performance improvement for end-users, 
+                    and the great part is that there's still a local fallback in case of CDN failure.</p>
+            </div>
+
+            <div class="one-third column headset">
+                <img src="images/empty.gif" alt="" class="large-icons icon-cert" />
+                <h3>Accessibility and SEO</h3>
+                <p>Making use of the newest W3C standards, HTML5 structure and content-specific tags, we offer not only top accessibility but also natural SEO-oriented enhancements.</p>
+            </div>
+        </div><!-- .row -->
+    </div><!-- container -->
+</article>
+
+
+<article id="pricing">
+    <div class="container">
+    
+        <div class="titleset">
+            <h2 class="remove-bottom">Pricing</h2>
+            <h6 class="subheader">Our best deal for now</h6>
+        </div>
+        
+        <div class="row">
+            <div class="span4">
+                <div class="headset price clearfix">
+                    <img src="images/empty.gif" alt="" class="large-icons icon-font" />
+                    <h4>Basic</h4>
+                    <span><sup>$</sup>25<sub>/mo</sub></span>
+                </div>
+                <div class="bottom-gradient add-top add-bottom">
+                    <span class="left"></span>
+                    <span class="center"></span>
+                    <span class="right"></span>
+                </div>
+                <p>This section offers great possibilities to compare plans, products, subscriptions or to just price your services in a clear and distinguish way.</p>
+                <ul class="disc">
+                    <li>Cross-browser</li>
+                    <li>Fast-loading</li>
+                    <li>Bookmarkable URLs</li>
+                    <li>W3C Standards</li>
+                </ul>
+                <a href="#contact" class="btn btn-large">Sign Up</a>
+            </div>
+            
+            <div class="span4 box light featured">
+                <div class="headset price clearfix">
+                    <img src="images/empty.gif" alt="" class="large-icons icon-shopcart" />
+                    <h4>Eshop</h4>
+                    <span><sup>$</sup>35<sub>/mo</sub></span>
+                </div>
+                <div class="bottom-gradient add-top add-bottom">
+                    <span class="left"></span>
+                    <span class="center"></span>
+                    <span class="right"></span>
+                </div>
+                <p>This section offers great possibilities to compare plans, products, subscriptions or to just price your services in a clear and distinguish way.</p>
+                <ul class="disc">
+                    <li>SEO Optimised</li>
+                    <li>Browser History</li>
+                    <li>Enterprise-level Website</li>
+                    <li>Accessibility</li>
+                </ul>
+                <a href="#contact" class="btn btn-large">Sign Up</a>
+            </div>
+            
+            <div class="span4">
+                <div class="headset price clearfix">
+                    <img src="images/empty.gif" alt="" class="large-icons icon-burst" />
+                    <h4>Custom</h4>
+                    <span><sup>$</sup>40<sub>/mo</sub></span>
+                </div>
+                <div class="bottom-gradient add-top add-bottom">
+                    <span class="left"></span>
+                    <span class="center"></span>
+                    <span class="right"></span>
+                </div>
+                <p>This section offers great possibilities to compare plans, products, subscriptions or to just price your services in a clear and distinguish way.</p>
+                <ul class="disc">
+                    <li>Grid System Layout</li>
+                    <li>Built for Performance</li>
+                    <li>Focus on flow and conversions</li>
+                    <li>Dynamic URL update</li>
+                </ul>
+                <a href="#contact" class="btn btn-large">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<article id="contact" class="dark">
+    <div class="container"> 
+    
+        <div class="sixteen columns titleset">
+            <h2 class="remove-bottom">Contact Us</h2>
+            <h6 class="subheader">We'd love to hear from you!</h6>
+        </div>
+        
+        <div class="two-thirds column">
+            <h3>Talk to Us</h3>
+            <p>This form uses the newest HTML5 tags and has graceful fallback for old browsers (ie. the email field requires to be filled with an email). It is sent through Ajax using the jQuery.post() method - <strong>Simple and Effective</strong>.</p>
+            
+            <form action="ajax.php" method="post" class="send-with-ajax">
+                
+                <div class="row">
+                    <div class="three columns alpha">
+                        <label for="form-name">Your Name <span>required</span></label>
+                    </div>
+                    <div class="seven columns omega">
+                        <input type="text" name="name" id="form-name" placeholder="Your Name" required="required" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="three columns alpha">
+                        <label for="form-email">Your Email <span>email required</span></label>
+                    </div>
+                    <div class="seven columns omega">   
+                        <input type="email" name="email" id="form-email" placeholder="your@email.com" required="required" />
+                    </div>
+                </div>
+
+                <div class="row">           
+                    <div class="three columns alpha">
+                        <label for="form-message">Message</label>
+                    </div>
+                    <div class="seven columns omega">   
+                        <textarea name="message" id="form-message"></textarea>
+                    </div>
+                </div>
+                
+                <div class="seven columns offset-by-three">
+                    <button type="submit">Submit Form</button>
+                    <div class="ajax-response"></div>
+                </div>
+            
+            </form>
+            
+        </div><!-- .column -->
+        
+        <div class="one-third column">
+            <h3>Find Us</h3>
+            <h5>Our Offices:</h5>
+            <p>
+            5th Ave.<br />
+            New York, New York 10001<br />
+            (212) 222-1111<br />
+            <a href="mailto:contact@maddim.com">contact@maddim.com</a>
+            </p>
+            
+            <p><a class="targetblank" href="http://maps.google.com/maps?saddr=5th+Ave&amp;hl=en&amp;ll=40.754149,-73.980035&amp;spn=0.005445,0.009195&amp;sll=40.775992,-73.960218&amp;sspn=0.021774,0.036778&amp;geocode=FXfabQId_CSX-w&amp;vpsrc=6&amp;mra=mr&amp;t=m&amp;z=17">
+                <img src="images/map.jpg" alt="" class="scale-with-grid featured" />
+            </a></p>
+            <h5>On The Web:</h5>
+            <a href="http://www.facebook.com/" class="targetblank imglink">
+                <img src="images/empty.gif" alt="Facebook" title="Facebook" class="medium-icons icon-facebook" />
+            </a>
+            <a href="http://www.twitter.com/" class="targetblank imglink">
+                <img src="images/empty.gif" alt="Twitter" title="Twitter" class="medium-icons icon-twitter" />
+            </a>
+        </div>
+        
+    </div><!-- container -->
+</article>
+
+<div class="modal hide fade" id="login-modal">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h1>Log in to Type Ahead</h1>
+    <form action="/login" method="POST" autocomplete="off"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='o7CoQ3S9YKC4vx1mVDWGvCJYn0c8njry' /></div>
+        <fieldset>
+            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
+            <input type="password" placeholder="Password" name="password" id="id_password" />
+            <input type="submit" value="Log in" class="btn">
+        </fieldset>
+        <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Type Ahead</span></a>
+    </form>
 </div>
 
 </body>
