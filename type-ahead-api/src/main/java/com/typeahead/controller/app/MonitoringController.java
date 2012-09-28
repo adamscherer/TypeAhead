@@ -16,49 +16,34 @@ import com.typeahead.repository.StateRepository;
 @Controller
 public class MonitoringController extends TypeAheadController {
 
-	@Autowired(required = false)
-	private CityRepository cityRepository;
+    @Autowired(required = false)
+    private CityRepository cityRepository;
 
-	@Autowired(required = false)
-	private CountyRepository countyRepository;
+    @Autowired(required = false)
+    private CountyRepository countyRepository;
 
-	@Autowired(required = false)
-	private StateRepository stateRepository;
+    @Autowired(required = false)
+    private StateRepository stateRepository;
 
-	@RequestMapping(value = "/city", params = "q")
-	@ResponseBody
-	public ResponseEntity<Object> city(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {
-		return new ResponseEntity<Object>(cityRepository.getCities(q, size), HttpStatus.OK);
-	}
+    @RequestMapping(value = "/city", params = "q")
+    @ResponseBody
+    public ResponseEntity<Object> cityTerms(@RequestParam String q,
+            @RequestParam(defaultValue = "50") int size) throws Exception {
+        return new ResponseEntity<Object>(cityRepository.getCitiesByTerm(q, size), HttpStatus.OK);
+    }
 
-	@RequestMapping(value = "/city/terms", params = "q")
-	@ResponseBody
-	public ResponseEntity<Object> cityTerms(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {
-		return new ResponseEntity<Object>(cityRepository.getCitiesByTerm(q, size), HttpStatus.OK);
-	}
+    @RequestMapping(value = "/county", params = "q")
+    @ResponseBody
+    public ResponseEntity<Object> countyTerms(@RequestParam String q,
+            @RequestParam(defaultValue = "50") int size) throws Exception {
+        return new ResponseEntity<Object>(countyRepository.getCountiesByTerm(q, size),
+                HttpStatus.OK);
+    }
 
-	@RequestMapping(value = "/county", params = "q")
-	@ResponseBody
-	public ResponseEntity<Object> county(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {
-		return new ResponseEntity<Object>(countyRepository.getCounties(q, size), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/county/terms", params = "q")
-	@ResponseBody
-	public ResponseEntity<Object> countyTerms(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {
-		return new ResponseEntity<Object>(countyRepository.getCountiesByTerm(q, size), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/state", params = "q")
-	@ResponseBody
-	public ResponseEntity<Object> state(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {
-		return new ResponseEntity<Object>(stateRepository.getStates(q, size), HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/state/terms", params = "q")
-	@ResponseBody
-	public ResponseEntity<Object> stateTerms(@RequestParam String q, @RequestParam(defaultValue = "50") int size) throws Exception {
-		return new ResponseEntity<Object>(stateRepository.getStatesByTerm(q, size), HttpStatus.OK);
-	}
-
+    @RequestMapping(value = "/state", params = "q")
+    @ResponseBody
+    public ResponseEntity<Object> stateTerms(@RequestParam String q,
+            @RequestParam(defaultValue = "50") int size) throws Exception {
+        return new ResponseEntity<Object>(stateRepository.getStatesByTerm(q, size), HttpStatus.OK);
+    }
 }
