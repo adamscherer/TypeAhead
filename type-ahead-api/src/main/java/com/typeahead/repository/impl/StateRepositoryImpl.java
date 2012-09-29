@@ -15,7 +15,7 @@ import com.typeahead.repository.StateRepository;
 public class StateRepositoryImpl extends IndexRepositoryImpl<State> implements StateRepository {
 
     @Override
-    public void load() throws Exception {
+    public int load() throws Exception {
 
         ClassPathResource resource = new ClassPathResource("/data/states.json");
         List<String> lines = IOUtils.readLines(resource.getInputStream());
@@ -23,7 +23,9 @@ public class StateRepositoryImpl extends IndexRepositoryImpl<State> implements S
             State value = JsonUtils.fromJson(line, State.class);
             loadIndex(value);
         }
+
         getIndexer().flush();
+        return lines.size();
     }
 
     public String configPath() {

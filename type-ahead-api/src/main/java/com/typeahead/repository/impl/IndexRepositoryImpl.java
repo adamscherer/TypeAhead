@@ -34,7 +34,7 @@ public abstract class IndexRepositoryImpl<T extends Element> {
 
     private ArrayStoreElement<T> elementStore;
 
-    public abstract void load() throws Exception;
+    public abstract int load() throws Exception;
 
     public abstract String configPath();
 
@@ -43,7 +43,6 @@ public abstract class IndexRepositoryImpl<T extends Element> {
     @PostConstruct
     public void init() throws Exception {
         initCleo();
-        // load();
     }
 
     public void initCleo() throws Exception {

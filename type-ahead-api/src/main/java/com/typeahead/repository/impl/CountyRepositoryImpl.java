@@ -15,7 +15,7 @@ import com.typeahead.repository.CountyRepository;
 public class CountyRepositoryImpl extends IndexRepositoryImpl<County> implements CountyRepository {
 
     @Override
-    public void load() throws Exception {
+    public int load() throws Exception {
 
         ClassPathResource resource = new ClassPathResource("/data/counties.json");
         List<String> lines = IOUtils.readLines(resource.getInputStream());
@@ -23,7 +23,9 @@ public class CountyRepositoryImpl extends IndexRepositoryImpl<County> implements
             County value = JsonUtils.fromJson(line, County.class);
             loadIndex(value);
         }
+
         getIndexer().flush();
+        return lines.size();
     }
 
     public String configPath() {

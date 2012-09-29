@@ -14,7 +14,7 @@ import com.typeahead.repository.CityRepository;
 @Repository
 public class CityRepositoryImpl extends IndexRepositoryImpl<City> implements CityRepository {
 
-    public void load() throws Exception {
+    public int load() throws Exception {
 
         ClassPathResource resource = new ClassPathResource("/data/cities.json");
         List<String> lines = IOUtils.readLines(resource.getInputStream());
@@ -22,7 +22,9 @@ public class CityRepositoryImpl extends IndexRepositoryImpl<City> implements Cit
             City city = JsonUtils.fromJson(line, City.class);
             loadIndex(city);
         }
+
         getIndexer().flush();
+        return lines.size();
     }
 
     public String configPath() {
