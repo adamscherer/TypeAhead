@@ -10,6 +10,14 @@ import com.typeahead.repository.CountyRepository;
 import com.typeahead.repository.IndexRepository;
 import com.typeahead.repository.StateRepository;
 
+/*
+ * To run: I created a 'java app' run configuration in eclipse with the following params:
+ * 
+ * -Xms1g -Xmx1g
+ * 
+ * @author mrusso
+ *
+ */
 public class CleoIndexerLoader {
 
     private final StateRepository stateRepository;
