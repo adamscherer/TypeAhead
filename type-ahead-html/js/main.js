@@ -21,17 +21,15 @@ require.config({
 
 require([
     // Load our app module and pass it to our definition function
-    'jQuery', 'Underscore', 'Backbone', 'app'
+    'jQuery', 'Underscore', 'app'
 
 // Some plugins have to be loaded in order due to their non AMD compliance
 // Because these scripts are not "modules" they do not pass any values to the
 // definition function below
-], function($, _, Backbone, App) {
+], function($, _, App) {
 
     // Expose Underscore globally to ease template rendering
     window._ = _;
-
-    Backbone.emulateHTTP = true;
 
     // The "app" dependency is passed in as "App"
     // Again, the other dependencies passed in are not "AMD" therefore don't

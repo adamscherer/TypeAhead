@@ -1,14 +1,12 @@
 define([
-    'jQuery', 'Underscore', 'Backbone'
-], function($, _, Backbone) {
+    'jQuery', 'Underscore'
+], function($, _) {
 
     var GlobalEvents = {
         fire : function() {
             console.log('fired');
         }
     };
-
-    _.extend(GlobalEvents, Backbone.Events);
 
     return GlobalEvents;
 });

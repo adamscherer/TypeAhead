@@ -1,10 +1,8 @@
 define([
     'jQuery',
     'Underscore',
-    'Backbone',
-    'router',
     'Bootstrap'
-], function($, _, Backbone, Router) {
+], function($, _, Bootstrap) {
 
     var initialize = function() {
 
@@ -16,9 +14,6 @@ define([
             this.startListener('typeahead-city', 'http://api.type-ahead.com/city');
             this.startListener('typeahead-county', '/api/county');
             this.startListener('typeahead-state', '/api/state');
-            this.startListener('typeahead-city-terms', '/api/city/terms');
-            this.startListener('typeahead-county-terms', '/api/county/terms');
-            this.startListener('typeahead-state-terms', '/api/state/terms');
         },
         startListener : function(key, url) {
             $("body").on('focus.typeahead.data-api', '[data-provide="' + key + '"]', function(e) {
