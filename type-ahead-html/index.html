@@ -8,9 +8,10 @@
     <meta name="author" content="Adam Scherer, Mario Russo">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" type='text/css'>
+    <link href="css/main.css" rel="stylesheet" type='text/css'>
+    <link href="css/prettify.css" rel="stylesheet" type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -94,18 +95,46 @@
     </div>
 </footer>
 
-<div class="modal hide fade" id="login-modal">
-    <a class="close" data-dismiss="modal">&times;</a>
-    <h1>Log in to Type Ahead</h1>
-    <form action="/login" method="POST" autocomplete="off"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='o7CoQ3S9YKC4vx1mVDWGvCJYn0c8njry' /></div>
-        <fieldset>
-            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
-            <input type="password" placeholder="Password" name="password" id="id_password" />
-            <input type="submit" value="Log in" class="btn">
-        </fieldset>
-        <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Type Ahead</span></a>
-    </form>
+<div class="modal small hide fade" id="login-modal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4><i class="icon-user"></i> It's nice to see you again</h4>
+    </div>
+    <div class="modal-body">
+        <form action="/login" method="POST" autocomplete="off" class="auth-form">
+            <div class="control-group">
+                <input type="text" placeholder="Email" name="username" maxlength="255"/>
+            </div>
+            <div class="control-group">
+                <input type="password" placeholder="Password" name="password"/>
+            </div>
+            <div class="control-group btn-container">
+                <button class="btn btn-primary">Log in</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#"><span>Forgot password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
+    </div>
 </div>
-
+<div class="modal small hide fade" id="forgot-password-modal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>Let's see if we can help you</h4>
+    </div>
+    <div class="modal-body">
+        <form action="/login" method="POST" autocomplete="off" class="auth-form">
+            <div class="control-group">
+                <input type="text" placeholder="Email" name="username" maxlength="255"/>
+            </div>
+            <div class="control-group btn-container">
+                <button class="btn btn-primary">Send reset password email</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#"><span>Know your password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
+    </div>
+</div>
 </body>
 </html>

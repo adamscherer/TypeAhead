@@ -215,14 +215,26 @@
 
 <div class="modal hide fade" id="login-modal">
     <a class="close" data-dismiss="modal">&times;</a>
-    <h1>Log in to Type Ahead</h1>
-    <form action="/login" method="POST" autocomplete="off"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='o7CoQ3S9YKC4vx1mVDWGvCJYn0c8njry' /></div>
+    <h1>Nice to see you again</h1>
+    <form action="/login" method="POST" autocomplete="off">
         <fieldset>
             <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
             <input type="password" placeholder="Password" name="password" id="id_password" />
             <input type="submit" value="Log in" class="btn">
         </fieldset>
         <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Type Ahead</span></a>
+    </form>
+</div>
+<div class="modal hide fade" id="forgot-password-modal">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h1>Let's see if we can help you</h1>
+    <form action="/login" method="POST" autocomplete="off">
+        <fieldset>
+            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
+            <input type="password" placeholder="Password" name="password" id="id_password" />
+            <input type="submit" value="Send reset password email" class="btn">
+        </fieldset>
+        <a href="/accounts/password/reset/"><span>Know your password?</span></a> &middot; <a href="/signup/"><span>Sign up to Type Ahead</span></a>
     </form>
 </div>
 
