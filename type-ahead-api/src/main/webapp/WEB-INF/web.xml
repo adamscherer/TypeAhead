@@ -28,6 +28,10 @@ version="3.0">
     </servlet>
     <servlet-mapping>
         <servlet-name>type-ahead-app-api</servlet-name>
+        <url-pattern>/authenticate/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>type-ahead-app-api</servlet-name>
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

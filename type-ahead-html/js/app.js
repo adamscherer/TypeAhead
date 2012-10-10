@@ -11,7 +11,7 @@ define([
 
     var typeahead = {
         initialize : function() {
-            this.startListener('typeahead-city', 'http://api.type-ahead.com/city');
+            this.startListener('typeahead-city', '/api/city');
             this.startListener('typeahead-county', '/api/county');
             this.startListener('typeahead-state', '/api/state');
         },

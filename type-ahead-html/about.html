@@ -138,92 +138,66 @@
     </div>
 </article>
 
-
-<article id="contact" class="dark">
-    <div class="container"> 
-    
-        <div class="sixteen columns titleset">
-            <h2 class="remove-bottom">Contact Us</h2>
-            <h6 class="subheader">We'd love to hear from you!</h6>
+<footer class="container">
+    <div class="row">
+        <div class="span8">
+            <p>Designed and built by Annconia Group with help from our friends at Twitter</p>
+            <ul class="footer-links">
+                <li><a href="#">Provide Feedback</a></li>
+            </ul>
         </div>
-        
-        <div class="two-thirds column">
-            <h3>Talk to Us</h3>
-            <p>This form uses the newest HTML5 tags and has graceful fallback for old browsers (ie. the email field requires to be filled with an email). It is sent through Ajax using the jQuery.post() method - <strong>Simple and Effective</strong>.</p>
-            
-            <form action="ajax.php" method="post" class="send-with-ajax">
-                
-                <div class="row">
-                    <div class="three columns alpha">
-                        <label for="form-name">Your Name <span>required</span></label>
-                    </div>
-                    <div class="seven columns omega">
-                        <input type="text" name="name" id="form-name" placeholder="Your Name" required="required" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="three columns alpha">
-                        <label for="form-email">Your Email <span>email required</span></label>
-                    </div>
-                    <div class="seven columns omega">   
-                        <input type="email" name="email" id="form-email" placeholder="your@email.com" required="required" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="three columns alpha">
-                        <label for="form-message">Message</label>
-                    </div>
-                    <div class="seven columns omega">   
-                        <textarea name="message" id="form-message"></textarea>
-                    </div>
-                </div>
-                
-                <div class="seven columns offset-by-three">
-                    <button type="submit">Submit Form</button>
-                    <div class="ajax-response"></div>
-                </div>
-            
-            </form>
-            
-        </div><!-- .column -->
-        
-        <div class="one-third column">
-            <h3>Find Us</h3>
+        <div class="span4">
             <h5>Our Offices:</h5>
             <p>
             5th Ave.<br />
             New York, New York 10001<br />
             (212) 222-1111<br />
-            <a href="mailto:contact@maddim.com">contact@maddim.com</a>
+            <a href="mailto:contact@maddim.com">contact@type-ahead.com</a>
             </p>
-            
-            <p><a class="targetblank" href="http://maps.google.com/maps?saddr=5th+Ave&amp;hl=en&amp;ll=40.754149,-73.980035&amp;spn=0.005445,0.009195&amp;sll=40.775992,-73.960218&amp;sspn=0.021774,0.036778&amp;geocode=FXfabQId_CSX-w&amp;vpsrc=6&amp;mra=mr&amp;t=m&amp;z=17">
-                <img src="images/map.jpg" alt="" class="scale-with-grid featured" />
-            </a></p>
-            <h5>On The Web:</h5>
-            <a href="http://www.facebook.com/" class="targetblank imglink">
-                <img src="images/empty.gif" alt="Facebook" title="Facebook" class="medium-icons icon-facebook" />
-            </a>
-            <a href="http://www.twitter.com/" class="targetblank imglink">
-                <img src="images/empty.gif" alt="Twitter" title="Twitter" class="medium-icons icon-twitter" />
-            </a>
         </div>
     </div>
-</article>
+</footer>
 
-<div class="modal hide fade" id="login-modal">
-    <a class="close" data-dismiss="modal">&times;</a>
-    <h1>Log in to Type Ahead</h1>
-    <form action="/login" method="POST" autocomplete="off"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='o7CoQ3S9YKC4vx1mVDWGvCJYn0c8njry' /></div>
-        <fieldset>
-            <input type="text" placeholder="Username or email" name="username" maxlength="30" id="id_username" />
-            <input type="password" placeholder="Password" name="password" id="id_password" />
-            <input type="submit" value="Log in" class="btn">
-        </fieldset>
-        <a href="/accounts/password/reset/"><span>Forgot password?</span></a> &middot; <a href="/signup/"><span>Sign up to Type Ahead</span></a>
-    </form>
+<div class="modal small hide fade" id="login-modal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4><i class="icon-user"></i> It's nice to see you again</h4>
+    </div>
+    <div class="modal-body">
+        <form action="/login" method="POST" autocomplete="off" class="auth-form">
+            <div class="control-group">
+                <input type="text" placeholder="Email" name="username" maxlength="255"/>
+            </div>
+            <div class="control-group">
+                <input type="password" placeholder="Password" name="password"/>
+            </div>
+            <div class="control-group btn-container">
+                <button class="btn btn-primary">Log in</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#"><span>Forgot password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
+    </div>
+</div>
+<div class="modal small hide fade" id="forgot-password-modal">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>Let's see if we can help you</h4>
+    </div>
+    <div class="modal-body">
+        <form action="/login" method="POST" autocomplete="off" class="auth-form">
+            <div class="control-group">
+                <input type="text" placeholder="Email" name="username" maxlength="255"/>
+            </div>
+            <div class="control-group btn-container">
+                <button class="btn btn-primary">Send reset password email</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#"><span>Know your password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
+    </div>
 </div>
 
 </body>
