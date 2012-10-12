@@ -5,7 +5,9 @@ define([
 ], function($, _, Bootstrap) {
 
     var initialize = function() {
-
+        // make code pretty
+        window.prettyPrint && prettyPrint();
+        
         typeahead.initialize();
     }
 

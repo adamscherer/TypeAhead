@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Type Ahead - Autocomplete Made Easy</title>
+    <title>Login - Type Ahead</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Adam Scherer, Mario Russo">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" type='text/css'>
+    <link href="css/main.css" rel="stylesheet" type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -34,8 +34,7 @@
       })();
     </script>
     
-    <script src="/js/libs/jquery/jquery-1.7.2.min.js"></script>
-    <script src="/js/bootstrap.js"></script>
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
   </head>
 
 <body>
@@ -47,12 +46,12 @@
         </a>
         <div class="nav-collapse">
             <ul class="nav pull-right actions">
-                <li><a href="#" class="btn" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+                <li><a href="/login.html" class="btn">Log In</a></li>
             </ul>
             <ul class="nav pull-right">
                 <li><a href="/docs.html">Docs + Examples</a></li>
                 <li><a href="/about.html">About us</a></li>
-                <li><a href="/signup.html">Pricing + Signup</a></li>
+                <li><a href="/pricing.html">Pricing + Signup</a></li>
             </ul>
         </div>
     </div>
@@ -63,77 +62,27 @@
     </div>  
 </header>
 
-<article id="pricing">
-    <div class="container">
-    
-        <div class="titleset">
-            <h2 class="remove-bottom">Pricing</h2>
-            <h6 class="subheader">Our best deal for now</h6>
+<article class="first small">
+    <div class="container inline-modal"> 
+        <div class="modal-header">
+            <h4>Let's get you started</h4>
         </div>
-        
-        <div class="row">
-            <div class="span4">
-                <div class="headset price clearfix">
-                    <img src="images/empty.gif" alt="" class="large-icons icon-font" />
-                    <h4>Basic</h4>
-                    <span><sup>$</sup>25<sub>/mo</sub></span>
-                </div>
-                <div class="bottom-gradient add-top add-bottom">
-                    <span class="left"></span>
-                    <span class="center"></span>
-                    <span class="right"></span>
-                </div>
-                <p>This section offers great possibilities to compare plans, products, subscriptions or to just price your services in a clear and distinguish way.</p>
-                <ul class="disc">
-                    <li>Cross-browser</li>
-                    <li>Fast-loading</li>
-                    <li>Bookmarkable URLs</li>
-                    <li>W3C Standards</li>
-                </ul>
-                <a href="#contact" class="btn btn-large">Sign Up</a>
+        <form action="/login" method="POST" autocomplete="off" class="auth-form">
+            <div class="control-group">
+                <input type="text" placeholder="Email" name="username" maxlength="255"/>
             </div>
-            
-            <div class="span4 box light featured">
-                <div class="headset price clearfix">
-                    <img src="images/empty.gif" alt="" class="large-icons icon-shopcart" />
-                    <h4>Eshop</h4>
-                    <span><sup>$</sup>35<sub>/mo</sub></span>
-                </div>
-                <div class="bottom-gradient add-top add-bottom">
-                    <span class="left"></span>
-                    <span class="center"></span>
-                    <span class="right"></span>
-                </div>
-                <p>This section offers great possibilities to compare plans, products, subscriptions or to just price your services in a clear and distinguish way.</p>
-                <ul class="disc">
-                    <li>SEO Optimised</li>
-                    <li>Browser History</li>
-                    <li>Enterprise-level Website</li>
-                    <li>Accessibility</li>
-                </ul>
-                <a href="#contact" class="btn btn-large">Sign Up</a>
+            <div class="control-group">
+                <input type="password" placeholder="Password" name="password"/>
             </div>
-            
-            <div class="span4">
-                <div class="headset price clearfix">
-                    <img src="images/empty.gif" alt="" class="large-icons icon-burst" />
-                    <h4>Custom</h4>
-                    <span><sup>$</sup>40<sub>/mo</sub></span>
-                </div>
-                <div class="bottom-gradient add-top add-bottom">
-                    <span class="left"></span>
-                    <span class="center"></span>
-                    <span class="right"></span>
-                </div>
-                <p>This section offers great possibilities to compare plans, products, subscriptions or to just price your services in a clear and distinguish way.</p>
-                <ul class="disc">
-                    <li>Grid System Layout</li>
-                    <li>Built for Performance</li>
-                    <li>Focus on flow and conversions</li>
-                    <li>Dynamic URL update</li>
-                </ul>
-                <a href="#contact" class="btn btn-large">Sign Up</a>
+            <div class="control-group">
+                <input type="password" placeholder="Confirm Password" name="confirmPassword"/>
             </div>
+            <div class="control-group btn-container">
+                <button class="btn btn-primary">Sign up for free</button>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <a href="/login.html"><span>Already Registered?</span></a> &middot; <a href="/forgot-password.html"><span>Forgot Password?</span></a>
         </div>
     </div>
 </article>
@@ -158,47 +107,6 @@
     </div>
 </footer>
 
-<div class="modal small hide fade" id="login-modal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4><i class="icon-user"></i> It's nice to see you again</h4>
-    </div>
-    <div class="modal-body">
-        <form action="/login" method="POST" autocomplete="off" class="auth-form">
-            <div class="control-group">
-                <input type="text" placeholder="Email" name="username" maxlength="255"/>
-            </div>
-            <div class="control-group">
-                <input type="password" placeholder="Password" name="password"/>
-            </div>
-            <div class="control-group btn-container">
-                <button class="btn btn-primary">Log in</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#"><span>Forgot password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
-    </div>
-</div>
-<div class="modal small hide fade" id="forgot-password-modal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4>Let's see if we can help you</h4>
-    </div>
-    <div class="modal-body">
-        <form action="/login" method="POST" autocomplete="off" class="auth-form">
-            <div class="control-group">
-                <input type="text" placeholder="Email" name="username" maxlength="255"/>
-            </div>
-            <div class="control-group btn-container">
-                <button class="btn btn-primary">Send reset password email</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#"><span>Know your password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
-    </div>
-</div>
-
+<div id="modals"></div>
 </body>
 </html>

@@ -10,7 +10,6 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/prettify.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -33,7 +32,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
-    
+    <script src="/js/libs/prettify.js"></script>
     <script data-main="js/main" src="js/libs/require/require.js"></script>
   </head>
 
@@ -46,12 +45,12 @@
         </a>
         <div class="nav-collapse">
             <ul class="nav pull-right actions">
-                <li><a href="#" class="btn" data-toggle="modal" data-target="#login-modal">Log In</a></li>
+                <li><a href="/login.html" class="btn">Log In</a></li>
             </ul>
             <ul class="nav pull-right">
                 <li><a href="/docs.html">Docs + Examples</a></li>
                 <li><a href="/about.html">About us</a></li>
-                <li><a href="/signup.html">Pricing + Signup</a></li>
+                <li><a href="/pricing.html">Pricing + Signup</a></li>
             </ul>
         </div>
     </div>
@@ -64,60 +63,69 @@
 
 <article class="docs">
     <div class="container">
-        <div class="row">
-            <div class="span3">
-                <ul class="nav nav-list docs-sidenav affix-top" data-spy="affix" data-offset-top="0">
-                  <li class="active"><a href="#api"><i class="icon-chevron-right"></i> API</a></li>
-                  <li class=""><a href="#examples"><i class="icon-chevron-right"></i> Examples</a></li>
-                  <li class=""><a href="#data-types"><i class="icon-chevron-right"></i> Data Types</a></li>
-                  <li class=""><a href="#cross-origin"><i class="icon-chevron-right"></i> Cross Origin Request</a></li>
-                </ul>
-            </div>
-            <div class="span9">
-                <section id="api">
-                    <div class="page-header">
-                        <h1>API</h1>
-                    </div>
-                    <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-prepend"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"add-on"</span><span class="tag">&gt;</span><span class="pln">@</span><span class="tag">&lt;/span&gt;&lt;input</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"span2"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"prependedInput"</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">"16"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Username"</span><span class="tag">&gt;</span></li><li class="L2"><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-append"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"span2"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"appendedInput"</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">"16"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"add-on"</span><span class="tag">&gt;</span><span class="pln">.00</span><span class="tag">&lt;/span&gt;</span></li><li class="L5"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
-                    <h4>Combined</h4>
-                    <p>Our API is simple and too the point.  In fact it's just one URL with a few options that should meet all of your requirement. <code>.add-on</code> to prepend and append an input.</p>
-                    <p>/api/{data-type}</p>
-                    
-                </section>
-
-                <section id="examples">
-                    <div class="page-header">
-                        <h1>Examples</h1>
-                    </div>
-                    <form class="" action="/">
-                        <div class="login-box">
-                            <div class="control-group" >
-                                <label class="control-label">City</label>
-                                <input name="city" type="text" class="span12" data-provide="typeahead-city">
-                            </div>
-                            <div class="control-group" >
-                                <label class="control-label">County</label>
-                                <input name="county" type="text" class="span12" data-provide="typeahead-county">
-                            </div>
-                            <div class="control-group" >
-                                <label class="control-label">State</label>
-                                <input name="state" type="text" class="span12" data-provide="typeahead-state">
-                            </div>
+        <div class="tabbable">
+            <ul class="nav nav-pills">
+                <li class="active">
+                    <a href="#tab1" data-toggle="tab">Data Types + Examples</a>
+                </li>
+                <li>
+                    <a href="#tab2" data-toggle="tab">API</a>
+                </li>
+                <li>
+                    <a href="#tab3" data-toggle="tab">Cross Origin Requests</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <p>We're committed to adding as many datasets as possible.  For our Beta release, we've focused on location based datasets.  Over the coming months, you'll find other categories that include Sports, Politics, Products, and any other data that you need in your site.  Please <a href="#">help us identify</a> this data and we'll get it loaded as quickly as possible.</p>
+                    <h1>Location Data</h1>
+                    <h3>Cities</h3>
+                    <div class="bs-docs-example">
+                        <p>Our city data is currently limited to U.S. Cities as is obtained from the U.S. Census Bureau.</p>
+                        <p><b>Source:</b> U.S. Census Bureau</p>
+                        <p><b>Last Updated:</b> July 11th, 2012</p>
+                        <div class="control-group" >
+                            <input placeholder="Type a city name" name="city" type="text" class="span5" data-provide="typeahead-city" autocomplete="off">
                         </div>
-                    </form>
-                </section>
-
-                <section id="data-types">
-                    <div class="page-header">
-                        <h1>Data Types</h1>
                     </div>
-                </section>
+                    <pre class="prettyprint">&lt;input placeholder="Type a city name" name="city" type="text" data-provide="typeahead-city" autocomplete="off"&gt;</pre>
 
-                <section id="cross-origin">
-                    <div class="page-header">
-                        <h1>Cross Origin Request</h1>
+                    <h3>Counties</h3>
+                    <div class="bs-docs-example">
+                        <p>Our city data is currently limited to U.S. Cities as is obtained from the U.S. Census Bureau.</p>
+                        <p><b>Source:</b> U.S. Census Bureau</p>
+                        <p><b>Last Updated:</b> July 11th, 2012</p>
+                        <div class="control-group" >
+                            <input placeholder="Type a county name" name="county" type="text" class="span5" data-provide="typeahead-county" autocomplete="off">
+                        </div>
                     </div>
-                </section>
+                    <pre class="prettyprint">&lt;input placeholder="Type a county name" name="county" type="text" data-provide="typeahead-city" autocomplete="off"&gt;</pre>
+                    
+                    <h3>States</h3>
+                    <div class="bs-docs-example">
+                        <p>Our state data is obtained from the U.S. Census Bureau.</p>
+                        <p><b>Source:</b> U.S. Census Bureau</p>
+                        <p><b>Last Updated:</b> July 11th, 2012</p>
+                        <div class="control-group" >
+                            <input placeholder="Type a state name" name="state" type="text" class="span5" data-provide="typeahead-state" autocomplete="off">
+                        </div>
+                    </div>
+                    <pre class="prettyprint">&lt;input placeholder="Type a state name" name="state" type="text" data-provide="typeahead-city" autocomplete="off"&gt;</pre>
+
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <p>Our API is simple and too the point.  In fact it's just one URL with a few options that should meet all of your requirement. <code>.add-on</code> to prepend and append an input.</p>
+                    <h1>API</h1>
+                    <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-prepend"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"add-on"</span><span class="tag">&gt;</span><span class="pln">@</span><span class="tag">&lt;/span&gt;&lt;input</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"span2"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"prependedInput"</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">"16"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">placeholder</span><span class="pun">=</span><span class="atv">"Username"</span><span class="tag">&gt;</span></li><li class="L2"><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"input-append"</span><span class="tag">&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"span2"</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"appendedInput"</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">"16"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"add-on"</span><span class="tag">&gt;</span><span class="pln">.00</span><span class="tag">&lt;/span&gt;</span></li><li class="L5"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+                        <h4>Combined</h4>
+                        
+                        <p>/api/{data-type}</p>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <p>
+                        Howdy, I'm in Section 3.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -142,48 +150,5 @@
         </div>
     </div>
 </footer>
-
-<div class="modal small hide fade" id="login-modal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4><i class="icon-user"></i> It's nice to see you again</h4>
-    </div>
-    <div class="modal-body">
-        <form action="/login" method="POST" autocomplete="off" class="auth-form">
-            <div class="control-group">
-                <input type="text" placeholder="Email" name="username" maxlength="255"/>
-            </div>
-            <div class="control-group">
-                <input type="password" placeholder="Password" name="password"/>
-            </div>
-            <div class="control-group btn-container">
-                <button class="btn btn-primary">Log in</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#"><span>Forgot password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
-    </div>
-</div>
-<div class="modal small hide fade" id="forgot-password-modal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4>Let's see if we can help you</h4>
-    </div>
-    <div class="modal-body">
-        <form action="/login" method="POST" autocomplete="off" class="auth-form">
-            <div class="control-group">
-                <input type="text" placeholder="Email" name="username" maxlength="255"/>
-            </div>
-            <div class="control-group btn-container">
-                <button class="btn btn-primary">Send reset password email</button>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <a href="#"><span>Know your password?</span></a> &middot; <a href="/signup.html"><span>Not registered?</span></a>
-    </div>
-</div>
-
 </body>
 </html>
