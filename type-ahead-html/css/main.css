@@ -285,6 +285,9 @@ ol.linenums li {
   line-height: 20px;
   text-shadow: 0 1px 0 #fff;
 }
+.pricing ul {
+    padding: 0 15px;
+}
 .pricing-table td {
     text-align: center;
 }
@@ -293,6 +296,7 @@ ol.linenums li {
     font-weight: bold;
     padding: 20px 0;
     background-color: #bbb;
+    color: #555;
 }
 .pricing-table .details td {
     font-weight: bold;
