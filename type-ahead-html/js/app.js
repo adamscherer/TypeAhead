@@ -13,35 +13,21 @@ define([
 
     $.fn.typeahead.defaults = $.extend($.fn.typeahead.defaults, {
         source: function (query, process) {
-            
-            if (this.timerId) {
-                clearTimeout(this.timerId);
-                this.timerId = null;
-            }
-            
+
             // Cancel last call if already in progress
             if (this.xhr) this.xhr.abort();
-            
-            var params = this.options.remote.preDispatch ? this.options.remote.preDispatch(query) : { query : query };
-            
-            this.timerId = setTimeout($.proxy(function() {
-                this.xhr = $.ajax({
-                    type: this.options.remote.method,
-                    url: this.options.remote.url,
-                    data: params,
-                    dataType: this.options.remote.dataType,
-                    success: function(data) {
-                        var items = [];
-                        
-                        $.each(data.values, function() {
-                            items.push(this.name);
-                        });
-                        
-                        process(items);
-                    }
-                  });
-                this.timerId = null;
-            }, this), this.options.remote.timeout);
+
+            var options = this.options.remote;
+            this.xhr = $.ajax({
+                url: options.url,
+                type: options.method,
+                data: options.preDispatch ? options.preDispatch(query) : { query : query },
+                dataType: options.dataType,
+                timeout: options.timeout,
+                success: function(data) {
+                    process(options.preProcess ? options.preProcess(data) : data);
+                }
+              });
         },
         remote: {
             url: null,
@@ -77,6 +63,15 @@ define([
                                 q : query,
                                 size : 10
                             }
+                        },
+                        preProcess : function(data) {
+                            var items = [];
+                            
+                            $.each(data.values, function() {
+                                items.push(this.name);
+                            });
+                            
+                            return items;
                         }
                     }
                 });
