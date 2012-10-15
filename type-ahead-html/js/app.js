@@ -1,14 +1,31 @@
 define([
     'jQuery',
     'Underscore',
-    'Bootstrap'
-], function($, _, Bootstrap) {
+    'Bootstrap',
+    'models/session',
+    'views/login'
+], function($, _, Bootstrap, Session, LoginView) {
+
+    var loginPage = new LoginView();
 
     var initialize = function() {
         // make code pretty
         window.prettyPrint && prettyPrint();
         
+        setupAuthListeners();
         typeahead.initialize();
+    }
+
+    var setupAuthListeners = function() {
+        Session.bind('change:auth', function(authenticated) {
+            if (authenticated) {
+                alert("app authenticated!");
+            } else {
+//                alert("app not authenticated!");
+            }
+        }.bind(this));
+
+        // Session.getAuth();
     }
 
     var typeahead = {
