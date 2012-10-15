@@ -43,7 +43,7 @@ define([
         initialize : function() {
             this.startListener('typeahead-city', 'http://api.type-ahead.com/city');
             this.startListener('typeahead-county', 'http://api.type-ahead.com/county');
-            this.startListener('typeahead-state', 'http://type-ahead.elasticbeanstalk.com/state');
+            this.startListener('typeahead-state', 'http://api.type-ahead.com/state');
         },
         startListener : function(key, url) {
             $("body").on('focus.typeahead.data-api', '[data-provide="' + key + '"]', function(e) {
