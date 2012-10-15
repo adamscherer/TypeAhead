@@ -63,11 +63,14 @@
 </header>
 
 <article class="first small">
-    <div class="container inline-modal"> 
+    <div id="login-container" class="container inline-modal"> 
         <div class="modal-header">
             <h4>It's nice to see you again</h4>
         </div>
-        <form action="/login" method="POST" autocomplete="off" class="auth-form">
+        <div class="alert alert-error hide">
+            <strong>Hmmm...</strong> Double check your username and password and try submitting again.
+        </div>
+        <form action="" method="POST" autocomplete="off" class="auth-form">
             <div class="control-group">
                 <input type="text" placeholder="Email" name="username" maxlength="255"/>
             </div>
@@ -86,21 +89,6 @@
 
 <footer class="container">
     <div class="row">
-        <div class="span8">
-            <p>Designed and built by Annconia Group with help from our friends at Twitter</p>
-            <ul class="footer-links">
-                <li><a href="#">Provide Feedback</a></li>
-            </ul>
-        </div>
-        <div class="span4">
-            <h5>Our Offices:</h5>
-            <p>
-            5th Ave.<br />
-            New York, New York 10001<br />
-            (212) 222-1111<br />
-            <a href="mailto:contact@maddim.com">contact@type-ahead.com</a>
-            </p>
-        </div>
     </div>
 </footer>
 

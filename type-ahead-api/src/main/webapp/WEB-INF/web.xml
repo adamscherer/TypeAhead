@@ -6,7 +6,7 @@ version="3.0">
     <display-name>TypeAhead</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:context/context.xml, classpath:context/mongo-context.xml,
+        <param-value>classpath:context/context.xml, 
             classpath:context/redis-context.xml</param-value>
     </context-param>
 
@@ -20,6 +20,7 @@ version="3.0">
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
     </servlet>
+    <!--
     <servlet>
         <servlet-name>type-ahead-app-api</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -42,6 +43,7 @@ version="3.0">
         <servlet-name>type-ahead-app-api</servlet-name>
         <url-pattern>/manage/*</url-pattern>
     </servlet-mapping>
+    -->
     <servlet-mapping>
         <servlet-name>type-ahead-api</servlet-name>
         <url-pattern>/*</url-pattern>
