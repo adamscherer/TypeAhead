@@ -33,6 +33,10 @@ version="3.0">
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>type-ahead-app-api</servlet-name>
+        <url-pattern>/logout/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>type-ahead-app-api</servlet-name>
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
