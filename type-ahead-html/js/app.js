@@ -47,9 +47,9 @@ define([
     var setupAuthListeners = function() {
         Session.bind('change:auth', function(authenticated) {
             if (authenticated) {
-                alert("app authenticated!");
+                window.location.href = "/dashboard.html";
             } else {
-//                alert("app not authenticated!");
+                // error will display on form
             }
         }.bind(this));
 
